@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Url } from '../url.model';
-import { ArticleService } from '../article.service';
-
 
 @Component({
   selector: 'app-url-list',
@@ -9,19 +8,15 @@ import { ArticleService } from '../article.service';
   styleUrls: ['./url-list.component.css']
 })
 export class UrlListComponent implements OnInit {
-  articles!: Url[];
+  articles: Url[] = [];
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.articleService.getAllArticlesByChannel('triathlon').subscribe(
-      (articles: Url[]) => {
-        this.articles = articles;
-        console.log(this.articles); // Do something with the retrieved articles
-      },
-      (error: any) => {
-        console.error(error);
+    this.route.queryParams.subscribe(params => {
+      if (params['articles']) {
+        this.articles = JSON.parse(params['articles']);
       }
-    );
+    });
   }
 }

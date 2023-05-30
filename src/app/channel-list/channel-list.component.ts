@@ -35,12 +35,13 @@ export class ChannelListComponent implements OnInit {
         this.articles = articles;
         console.log(this.articles); // Do something with the retrieved articles
   
-        // Navigate to a different route/component
-        this.router.navigate(['/url-list']); // Replace '/articles' with the desired route
+        // Navigate to the UrlListComponent and pass the articles as query parameters
+        this.router.navigate(['/url-list'], { queryParams: { articles: JSON.stringify(this.articles) } });
       },
       (error: any) => {
         console.error(error);
       }
     );
   }
+  
 }
