@@ -7,13 +7,15 @@ import { UrlListComponent } from './url-list/url-list.component';
 import { UrlDetailsComponent } from './url-details/url-details.component';
 import { UrlFormComponent } from './url-form/url-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChannelListComponent } from './channel-list/channel-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UrlListComponent,
     UrlDetailsComponent,
-    UrlFormComponent
+    UrlFormComponent,
+    ChannelListComponent
   ],
   imports: [
     BrowserModule,

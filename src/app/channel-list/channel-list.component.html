@@ -1,0 +1,7 @@
+<h2>List of Channel Names</h2>
+
+<div>
+  <button *ngFor="let channelName of channelNames" (click)="onChannelButtonClick(channelName)" class="channel-button">
+    {{ channelName }}
+  </button>
+</div>

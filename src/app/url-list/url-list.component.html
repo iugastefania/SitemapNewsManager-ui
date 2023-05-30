@@ -1,11 +1,13 @@
 <h2>List of Articles</h2>
 
-<div *ngIf="articles">
-  <div *ngFor="let article of articles">
-    <h3>{{ article.loc }}</h3>
-    <p>{{ article.lastmod }}</p>
-    <p>{{ article.description }}</p>
+<ul>
+  <li *ngFor="let article of articles">
+    <p>Loc: {{ article.loc }}</p>
+    <p>Last Mod: {{ article.lastmod }}</p>
+    <p>Channel Name: {{ article.channelName }}</p>
+    <p>Description: {{ article.description }}</p>
     <img [src]="article.thumbnail" alt="Thumbnail">
-    <hr>
-  </div>
-</div>
+  </li>
+</ul>
+
+<hr>
