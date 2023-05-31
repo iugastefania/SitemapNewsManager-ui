@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Url } from '../url.model';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Url } from '../models/url.model';
 
 @Component({
   selector: 'app-article-thumbnail',
@@ -8,4 +8,14 @@ import { Url } from '../url.model';
 })
 export class ArticleThumbnailComponent {
   @Input() article!: Url;
+  // @Output() edit: EventEmitter<Url> = new EventEmitter<Url>();
+  // @Output() delete: EventEmitter<Url> = new EventEmitter<Url>();
+
+  // onEditClick() {
+  //   this.edit.emit(this.article);
+  // }
+
+  // onDeleteClick() {
+  //   this.delete.emit(this.article);
+  // }
 }

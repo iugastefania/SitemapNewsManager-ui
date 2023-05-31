@@ -1,13 +1,27 @@
 <h2>List of Articles</h2>
 
-<ul>
-  <li *ngFor="let article of articles">
-    <p>Loc: {{ article.loc }}</p>
-    <p>Last Mod: {{ article.lastmod }}</p>
-    <p>Channel Name: {{ article.channelName }}</p>
-    <p>Description: {{ article.description }}</p>
-    <img [src]="article.thumbnail" alt="Thumbnail">
-  </li>
-</ul>
+<div *ngIf="articles.length === 0">
+  <p>No articles found.</p>
+</div>
 
-<hr>
+<div class="url-dashboard" *ngIf="articles.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let article of articles">
+        <td>
+          <app-article-thumbnail [article]="article"></app-article-thumbnail>
+        </td>
+        <td>
+          <button (click)="editUrl(article)">Edit</button>
+          <button (click)="deleteUrl(article)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

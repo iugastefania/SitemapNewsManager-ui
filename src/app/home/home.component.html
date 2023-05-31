@@ -1,0 +1,20 @@
+<h2>Home</h2>
+
+<div>
+  <h3>Featured Articles</h3>
+  <ul>
+    <li *ngFor="let article of featuredArticles">
+      <h4>{{ article.loc }}</h4>
+      <p>{{ article.description }}</p>
+      <img [src]="article.thumbnail" alt="Thumbnail">
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Statistics</h3>
+  <p>Total Articles: {{ totalArticles }}</p>
+  <p>Total Channels: {{ totalChannels }}</p>
+  <p>Total Sitemaps: {{ totalSitemaps }}</p>
+  <!-- You can add more statistics display here -->
+</div>

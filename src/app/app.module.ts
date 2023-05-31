@@ -9,6 +9,8 @@ import { UrlFormComponent } from './url-form/url-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail
     UrlDetailsComponent,
     UrlFormComponent,
     ChannelListComponent,
-    ArticleThumbnailComponent
+    ArticleThumbnailComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
