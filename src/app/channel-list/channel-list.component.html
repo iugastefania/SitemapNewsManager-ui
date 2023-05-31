@@ -1,7 +1,12 @@
-<h2>List of Channel Names</h2>
+<h2>List of Channels</h2>
 
-<div>
-  <button *ngFor="let channelName of channelNames" (click)="onChannelButtonClick(channelName)" class="channel-button">
-    {{ channelName }}
-  </button>
+<div class="channel-list">
+  <mat-card class="channel-card" *ngFor="let channelName of channelNames">
+    <mat-card-header>
+      <mat-card-title>{{ channelName }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="onChannelButtonClick(channelName)">View Channel</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

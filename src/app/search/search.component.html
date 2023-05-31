@@ -1,0 +1,20 @@
+<h2>Search Articles</h2>
+
+<div class="search-form">
+  <input type="text" [(ngModel)]="searchQuery.loc" placeholder="Search by loc">
+  <input type="text" [(ngModel)]="searchQuery.description" placeholder="Search by description">
+  <input type="text" [(ngModel)]="searchQuery.thumbnail" placeholder="Search by thumbnail">
+  <button (click)="searchArticles()">Search</button>
+</div>
+
+<div *ngIf="searchResults.length === 0">
+  <p>No articles found.</p>
+</div>
+
+<div class="search-results" *ngIf="searchResults.length > 0">
+  <ul>
+    <li *ngFor="let article of searchResults">
+      <!-- <a [routerLink]="['/article', article.id]">{{ article.title }}</a> -->
+    </li>
+  </ul>
+</div>
