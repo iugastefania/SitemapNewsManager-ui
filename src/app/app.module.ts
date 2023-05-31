@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { UrlEditComponent } from './url-edit/url-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { HomeComponent } from './home/home.component';
     ChannelListComponent,
     ArticleThumbnailComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    UrlEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

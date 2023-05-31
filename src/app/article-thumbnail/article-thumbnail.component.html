@@ -1,7 +1,13 @@
 <div class="thumbnail">
-  <img [src]="article.thumbnail" alt="Thumbnail">
-  <h3 class="thumbnail-title">{{ article.loc }}</h3>
-  <p class="thumbnail-description">{{ article.description }}</p>
-  <p>{{ article.lastmod }}</p>
-  <a [href]="article.loc" target="_blank">Read Article</a>
+  <div class="thumbnail-image">
+    <img [src]="article.thumbnail" alt="Thumbnail">
+  </div>
+  <div class="card-content">
+    <h3 class="thumbnail-description">{{ article.description }}</h3>
+    <!-- <p class="thumbnail-loc">{{ article.loc }}</p> -->
+    <!-- <p>{{ article.lastmod }}</p> -->
+  </div>
+  <div class="card-actions">
+    <a [href]="article.loc" target="_blank" class="read-article-button">Read Article</a>
+  </div>
 </div>

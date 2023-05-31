@@ -6,15 +6,18 @@ import { UrlListComponent } from './url-list/url-list.component';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { NavbarComponent  } from './navbar/navbar.component';
 import { HomeComponent   } from './home/home.component';
+import { UrlEditComponent } from './url-edit/url-edit.component';
+
 
 
 const routes: Routes = [
   { path: 'url-form', component: UrlFormComponent },
-  { path: 'url-details', component: UrlDetailsComponent },
+  { path: 'url-details/:id', component: UrlDetailsComponent },
   { path: 'url-list', component: UrlListComponent },
   { path: 'channel-list', component: ChannelListComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'url-edit/:id', component: UrlEditComponent },
   // Add any additional routes here if needed
 ];
 

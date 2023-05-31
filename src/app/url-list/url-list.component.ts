@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../article.service';
 import { Url } from '../models/url.model';
+
 
 @Component({
   selector: 'app-url-list',
@@ -11,7 +12,7 @@ import { Url } from '../models/url.model';
 export class UrlListComponent implements OnInit {
   articles: Url[] = [];
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private articleService: ArticleService) { }
 
 
   ngOnInit() {
@@ -23,24 +24,24 @@ export class UrlListComponent implements OnInit {
   }
 
   viewUrlDetails(url: Url) {
-    // Implement the logic to view the details of the selected URL
-    console.log('View URL Details:', url);
+    // Navigate to the UrlDetailsComponent with the selected article
+    this.router.navigate(['/url-details', url.loc]);
   }
 
-  editUrl(url: Url) {
-    // Implement the logic to edit the selected URL
-    console.log('Edit URL:', url);
+  // editUrl(url: Url) {
+  //   // Implement the logic to edit the selected URL
+  //   console.log('Edit URL:', url);
 
-    // Call the updateArticle method from the ArticleService
-    this.articleService.updateArticle(url).subscribe(
-      (response: string) => {
-        console.log('URL updated successfully:', response);
-      },
-      (error: any) => {
-        console.error('Failed to update URL:', error);
-      }
-    );
-  }
+  //   // Call the updateArticle method from the ArticleService
+  //   this.articleService.updateArticle(url).subscribe(
+  //     (response: string) => {
+  //       console.log('URL updated successfully:', response);
+  //     },
+  //     (error: any) => {
+  //       console.error('Failed to update URL:', error);
+  //     }
+  //   );
+  // }
 
   deleteUrl(url: Url) {
     // Implement the logic to delete the selected URL

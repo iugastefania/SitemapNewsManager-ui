@@ -5,8 +5,9 @@
 }
 
 .thumbnail {
-  width: 200px;
+  width: 45%; /* Adjust the width as desired */
   margin: 10px;
+  max-width: 350px; /* Limit the maximum width of each thumbnail */
 }
 
 .thumbnail img {

@@ -1,0 +1,25 @@
+<h2>Edit URL</h2>
+
+<form (submit)="submitForm()">
+  <div>
+    <label for="loc">URL:</label>
+    <input type="text" id="loc" name="loc" [(ngModel)]="article.loc" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" [(ngModel)]="article.description" required>
+  </div>
+  <div>
+    <label for="lastmod">Last Modified:</label>
+    <input type="text" id="lastmod" name="lastmod" [(ngModel)]="article.lastmod" required>
+  </div>
+  <div>
+    <label for="channelName">Channel Name:</label>
+    <input type="text" id="channelName" name="channelName" [(ngModel)]="article.channelName" required>
+  </div>
+  <div>
+    <label for="thumbnail">Thumbnail:</label>
+    <input type="text" id="thumbnail" name="thumbnail" [(ngModel)]="article.thumbnail" required>
+  </div>
+  <button type="submit">Update URL</button>
+</form>
