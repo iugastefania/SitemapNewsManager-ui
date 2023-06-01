@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 
 @Component({
@@ -14,11 +14,23 @@ export class SearchComponent {
     thumbnail: ''
   };
   searchResults: Url[] = [];
+  showNoResultsMessage: boolean = false;
 
   constructor(private articleService: ArticleService) { }
 
+
   searchArticles() {
-    // Call the articleService method to search for articles based on the searchQuery
-    // Example: this.searchResults = this.articleService.searchArticles(this.searchQuery);
+    this.articleService.getArticle(this.searchQuery.loc).subscribe(
+      (article: Url) => {
+        this.searchResults = [article];
+        this.showNoResultsMessage = this.searchResults.length === 0; // Show "No results found" message if searchResults is empty
+        console.log('Search Results:', this.searchResults);
+      },
+      (error: any) => {
+        this.searchResults = []; // Clear the searchResults array
+        this.showNoResultsMessage = true; // Show "No results found" message
+        console.error(error);
+      }
+    );
   }
 }

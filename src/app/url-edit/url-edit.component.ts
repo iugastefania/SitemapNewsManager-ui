@@ -51,7 +51,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Url } from '../models/url.model';
 

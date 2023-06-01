@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 
 @Component({

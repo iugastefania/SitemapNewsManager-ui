@@ -20,7 +20,6 @@ import { UrlDetailsComponent } from './url-details/url-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { UrlEditComponent } from './url-edit/url-edit.component';
 import { SearchComponent } from './search/search.component';
@@ -36,7 +35,6 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
     UrlDetailsComponent,
     ChannelListComponent,
     ArticleThumbnailComponent,
-    NavbarComponent,
     HomeComponent,
     UrlEditComponent,
     SearchComponent,

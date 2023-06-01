@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 
 
@@ -23,22 +23,6 @@ export class UrlListComponent implements OnInit {
     });
   }
 
-  // ngOnInit() {
-  //   this.route.paramMap.subscribe(params => {
-  //     if (params.has('articles')) {
-  //       this.articles = JSON.parse(params.get('articles'));
-  //     }
-  //   });
-  // }
-
-  // ngOnInit() {
-  //   this.route.paramMap.subscribe(params => {
-  //     const articlesParam = params.get('articles');
-  //     if (articlesParam) {
-  //       this.articles = JSON.parse(articlesParam);
-  //     }
-  //   });
-  // }
   
 
   viewUrlDetails(url: Url) {
@@ -46,20 +30,6 @@ export class UrlListComponent implements OnInit {
     this.router.navigate(['/url-details', url.loc]);
   }
 
-  // editUrl(url: Url) {
-  //   // Implement the logic to edit the selected URL
-  //   console.log('Edit URL:', url);
-
-  //   // Call the updateArticle method from the ArticleService
-  //   this.articleService.updateArticle(url).subscribe(
-  //     (response: string) => {
-  //       console.log('URL updated successfully:', response);
-  //     },
-  //     (error: any) => {
-  //       console.error('Failed to update URL:', error);
-  //     }
-  //   );
-  // }
 
   deleteUrl(url: Url) {
     // Implement the logic to delete the selected URL

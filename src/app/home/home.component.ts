@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 import { Sitemap } from '../models/sitemap.model';
 
@@ -47,9 +47,8 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    // You can add more statistics fetching logic here
-    // For example, fetching the total number of articles
-    this.articleService.getAllArticlesByChannel('all').subscribe(
+  // Fetch all the articles
+    this.articleService.getAllUrls().subscribe(
       (articles: Url[]) => {
         this.totalArticles = articles.length;
         console.log('Total Articles:', this.totalArticles);

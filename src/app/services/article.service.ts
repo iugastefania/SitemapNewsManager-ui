@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Url } from './models/url.model';
-import { Sitemap } from './models/sitemap.model';
+import { Url } from '../models/url.model';
+import { Sitemap } from '../models/sitemap.model';
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +18,10 @@ import { Sitemap } from './models/sitemap.model';
     //     return this.http.get<Url[]>(`http://localhost:8080/getAllArticlesByChannel/${channelName}`, { responseType: 'json' });
     //   }
 
+    getAllUrls(): Observable<Url[]> {
+      return this.http.get<Url[]>(`${this.baseUrl}/getAllUrls`);
+    }
+    
     getArticle(loc: string): Observable<Url> {
       return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
     }

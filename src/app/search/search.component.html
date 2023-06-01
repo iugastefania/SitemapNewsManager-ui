@@ -1,20 +1,157 @@
-<h2>Search Articles</h2>
+<!-- <div class="search-container">
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="searchQuery.loc" placeholder="Search by loc">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
 
-<div class="search-form">
-  <input type="text" [(ngModel)]="searchQuery.loc" placeholder="Search by loc">
-  <input type="text" [(ngModel)]="searchQuery.description" placeholder="Search by description">
-  <input type="text" [(ngModel)]="searchQuery.thumbnail" placeholder="Search by thumbnail">
-  <button (click)="searchArticles()">Search</button>
-</div>
-
-<div *ngIf="searchResults.length === 0">
-  <p>No articles found.</p>
+  <button mat-raised-button color="primary" (click)="searchArticles()">Search</button>
 </div>
 
 <div class="search-results" *ngIf="searchResults.length > 0">
-  <ul>
-    <li *ngFor="let article of searchResults">
-      <!-- <a [routerLink]="['/article', article.id]">{{ article.title }}</a> -->
-    </li>
-  </ul>
+  <h3>Search Results</h3>
+  <mat-card *ngFor="let article of searchResults" class="search-result-card">
+    <mat-card-header>
+      <mat-card-title>{{ article.loc }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ article.description }}</p>
+      <img [src]="article.thumbnail" alt="Thumbnail" class="search-result-thumbnail">
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="no-results" *ngIf="searchResults.length === 0">
+  <p>No results found.</p>
+</div> -->
+<!-- <div class="search-container">
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="searchQuery.loc" placeholder="Search by loc">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="searchArticles()">Search</button>
+</div>
+
+<div class="search-results" *ngIf="searchResults.length > 0">
+  <h3>Search Results</h3>
+  <mat-card *ngFor="let article of searchResults" class="search-result-card">
+    <mat-card-header>
+      <mat-card-title>{{ article.loc }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="details-row">
+        <div class="details-label">lastmod:</div>
+        <div class="details-value">{{ article.lastmod }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">channelName:</div>
+        <div class="details-value">{{ article.channelName }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">description:</div>
+        <div class="details-value">{{ article.description }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">thumbnail:</div>
+        <div class="details-value">
+          <img [src]="article.thumbnail" alt="Thumbnail" class="search-result-thumbnail">
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="no-results" *ngIf="searchResults.length === 0">
+  <p>No results found.</p>
+</div> -->
+<!-- <div class="search-container">
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="searchQuery.loc" placeholder="Search by loc">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="searchArticles()">Search</button>
+</div>
+
+<div class="search-results" *ngIf="searchResults.length > 0">
+  <h3>Search Results</h3>
+  <mat-card *ngFor="let article of searchResults" class="search-result-card">
+    <mat-card-header>
+      <mat-card-title>{{ article.loc }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="details-row">
+        <div class="details-label">Last Modified:</div>
+        <div class="details-value">{{ article.lastmod }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Channel Name:</div>
+        <div class="details-value">{{ article.channelName }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Description:</div>
+        <div class="details-value">{{ article.description }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Thumbnail:</div>
+        <div class="details-value">
+          <img [src]="article.thumbnail" alt="Thumbnail" class="search-result-thumbnail">
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="no-results" *ngIf="searchResults.length === 0">
+  <p>No results found.</p>
+</div> -->
+<div class="search-container">
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="searchQuery.loc" placeholder="Search by URL">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="searchArticles()">Search</button>
+</div>
+
+<div class="search-results" *ngIf="searchResults.length > 0">
+  <h3>Search Results</h3>
+  <mat-card *ngFor="let article of searchResults" class="search-result-card">
+    <mat-card-header>
+      <mat-card-title>Found it!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="details-row">
+        <div class="details-label">Article url:</div>
+        <div class="details-value">{{ article.loc }}</div>
+      </div>
+
+      <div class="details-row">
+        <div class="details-label">Channel Name:</div>
+        <div class="details-value">{{ article.channelName }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Thumbnail:</div>
+        <div class="details-value">
+          <img [src]="article.thumbnail" alt="Thumbnail" class="search-result-thumbnail">
+        </div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Description:</div>
+        <div class="details-value">{{ article.description }}</div>
+      </div>
+      <div class="details-row">
+        <div class="details-label">Last Modified:</div>
+        <div class="details-value">{{ article.lastmod }}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="no-results" *ngIf="searchResults.length === 0 && showNoResultsMessage">
+  <p>No results found.</p>
+</div>
+
+<div class="no-search" *ngIf="!searchQuery.loc && searchResults.length === 0">
+  <p>Please enter a search query.</p>
 </div>
