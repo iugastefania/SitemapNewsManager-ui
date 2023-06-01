@@ -1,0 +1,29 @@
+<div class="dashboard-container">
+    <h2 class="dashboard-title">Sitemaps Overview</h2>
+  
+    <div class="sitemap-grid">
+      <mat-card class="sitemap-card" *ngFor="let sitemap of sitemaps">
+        <div class="card-avatar">
+          <mat-icon>language</mat-icon>
+        </div>
+        <mat-card-header>
+          <mat-card-title>{{ sitemap.loc }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="card-item">
+            <mat-icon class="card-item-icon">description</mat-icon>
+            <span class="card-item-label">Article Count:</span>
+            <span class="card-item-value">10</span>
+          </div>
+          <div class="card-item">
+            <mat-icon class="card-item-icon">calendar_today</mat-icon>
+            <span class="card-item-label">Last Updated:</span>
+            <span class="card-item-value">May 1, 2023</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  
+  

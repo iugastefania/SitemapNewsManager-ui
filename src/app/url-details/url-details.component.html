@@ -8,13 +8,22 @@
 
   <button (click)="editArticle()">Edit</button>
 </div> -->
-<div *ngIf="article" class="article-details mat-elevation-z4">
+<!-- <div *ngIf="article" class="article-details mat-elevation-z4">
   <h2>{{ article.channelName }}</h2>
   <h3>{{ article.lastmod }}</h3>
   <p>{{ article.description }}</p>
   <p>{{ article.loc }}</p>
   <img [src]="article.thumbnail" alt="Thumbnail">
 
-  <!-- Add the Edit button using a MatButton -->
+  <button mat-raised-button color="primary" (click)="editArticle()">Edit</button>
+</div> -->
+<div *ngIf="article" class="article-details mat-elevation-z4">
+  <h2>{{ article.loc }}</h2>
+  <h3>{{ article.lastmod }}</h3>
+  <h3>{{ article.channelName }}</h3>
+  <img [src]="article.thumbnail" alt="Thumbnail">
+  <p>{{ article.description }}</p>
+  
+
   <button mat-raised-button color="primary" (click)="editArticle()">Edit</button>
 </div>

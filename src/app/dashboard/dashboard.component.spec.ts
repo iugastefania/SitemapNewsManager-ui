@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrlFormComponent } from './url-form.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('UrlFormComponent', () => {
-  let component: UrlFormComponent;
-  let fixture: ComponentFixture<UrlFormComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UrlFormComponent]
+      declarations: [DashboardComponent]
     });
-    fixture = TestBed.createComponent(UrlFormComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,12 +7,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UrlListComponent } from './url-list/url-list.component';
 import { UrlDetailsComponent } from './url-details/url-details.component';
-import { UrlFormComponent } from './url-form/url-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
@@ -22,14 +26,14 @@ import { UrlEditComponent } from './url-edit/url-edit.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { UrlEditPopupComponent } from './url-edit-popup/url-edit-popup.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ArticleCreateComponent } from './article-create/article-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UrlListComponent,
     UrlDetailsComponent,
-    UrlFormComponent,
     ChannelListComponent,
     ArticleThumbnailComponent,
     NavbarComponent,
@@ -37,7 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UrlEditComponent,
     SearchComponent,
     FooterComponent,
-    UrlEditPopupComponent
+    UrlEditPopupComponent,
+    DashboardComponent,
+    ArticleCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatListModule,
     MatTableModule,
+    MatInputModule,
+    MatToolbarModule, 
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
