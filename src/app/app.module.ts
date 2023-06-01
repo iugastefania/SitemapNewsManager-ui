@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

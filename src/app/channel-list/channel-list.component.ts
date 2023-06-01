@@ -43,5 +43,21 @@ export class ChannelListComponent implements OnInit {
       }
     );
   }
+
+  // onChannelButtonClick(channelName: string) {
+  //   this.articleService.getAllArticlesByChannel(channelName).subscribe(
+  //     (articles: Url[]) => {
+  //       this.articles = articles;
+  //       console.log(this.articles); // Do something with the retrieved articles
+  
+  //       // Navigate to the UrlListComponent and pass the articles as a route parameter
+  //       this.router.navigate(['/url-list', { articles: JSON.stringify(this.articles) }]);
+  //     },
+  //     (error: any) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
+  
   
 }

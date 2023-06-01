@@ -23,6 +23,24 @@ export class UrlListComponent implements OnInit {
     });
   }
 
+  // ngOnInit() {
+  //   this.route.paramMap.subscribe(params => {
+  //     if (params.has('articles')) {
+  //       this.articles = JSON.parse(params.get('articles'));
+  //     }
+  //   });
+  // }
+
+  // ngOnInit() {
+  //   this.route.paramMap.subscribe(params => {
+  //     const articlesParam = params.get('articles');
+  //     if (articlesParam) {
+  //       this.articles = JSON.parse(articlesParam);
+  //     }
+  //   });
+  // }
+  
+
   viewUrlDetails(url: Url) {
     // Navigate to the UrlDetailsComponent with the selected article
     this.router.navigate(['/url-details', url.loc]);

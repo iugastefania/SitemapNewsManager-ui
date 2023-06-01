@@ -8,7 +8,7 @@ import { Sitemap } from './models/sitemap.model';
     providedIn: 'root'
   })
   export class ArticleService {
-
+    
     constructor(private http: HttpClient) { }
 
     private baseUrl = 'http://localhost:8080'; // Update with your server URL
