@@ -8,16 +8,16 @@ import { Url } from '../models/url.model';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  searchQuery: { loc: string, description: string, thumbnail: string } = {
+  searchQuery: { loc: string, description: string, thumbnail: string, title: string } = {
     loc: '',
     description: '',
-    thumbnail: ''
+    thumbnail: '',
+    title: ''
   };
   searchResults: Url[] = [];
   showNoResultsMessage: boolean = false;
 
   constructor(private articleService: ArticleService) { }
-
 
   searchArticles() {
     this.articleService.getArticle(this.searchQuery.loc).subscribe(

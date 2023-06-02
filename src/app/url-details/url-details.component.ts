@@ -97,6 +97,7 @@ import { UrlEditPopupComponent } from '../url-edit-popup/url-edit-popup.componen
 })
 export class UrlDetailsComponent implements OnInit {
   article: Url | undefined;
+  formattedDate: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -111,12 +112,31 @@ export class UrlDetailsComponent implements OnInit {
       this.articleService.getArticle(loc).subscribe(
         (url: Url) => {
           this.article = url;
+          this.formatDate(); // Format the date when the article is fetched
         },
         (error: any) => {
           console.error('Failed to fetch URL details:', error);
         }
       );
     });
+  }
+
+  formatDate() {
+    if (this.article?.lastmod) {
+      const date = new Date(this.article.lastmod);
+  
+      const options: Intl.DateTimeFormatOptions = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true
+      };
+  
+      this.formattedDate = date.toLocaleString('en-US', options);
+    }
   }
 
   editArticle() {
@@ -135,5 +155,6 @@ export class UrlDetailsComponent implements OnInit {
     });
   }
 }
+
 
 

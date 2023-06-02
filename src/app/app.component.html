@@ -64,31 +64,34 @@
   
   <app-footer></app-footer> -->
   <div class="main-container">
-    <mat-toolbar color="primary" routerLink="/home">Sitemap News Manager</mat-toolbar>
+    <mat-toolbar color="primary" routerLink="/home">
+      <mat-icon class="toolbar-icon">web</mat-icon>
+      <span class="toolbar-text">Sitemap News Manager</span>
+    </mat-toolbar>
   
     <div class="container">
       <div class="sidebar">
         <mat-list>
+          <mat-list-item routerLink="/home" routerLinkActive="active">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </mat-list-item>
           <mat-list-item routerLink="/dashboard" routerLinkActive="active">
             <mat-icon>dashboard</mat-icon>
             <span>Dashboard</span>
           </mat-list-item>
-          <mat-list-item routerLink="/channel-list" routerLinkActive="active">
+          <!-- <mat-list-item routerLink="/channel-list" routerLinkActive="active">
             <mat-icon>rss_feed</mat-icon>
             <span>Channels</span>
+          </mat-list-item> -->
+          <mat-list-item routerLink="/search" routerLinkActive="active">
+            <mat-icon>search</mat-icon>
+            <span>Search</span>
           </mat-list-item>
           <mat-list-item routerLink="/article-create" routerLinkActive="active">
             <mat-icon>article</mat-icon>
             <span>Create Article</span>
           </mat-list-item>
-          <mat-list-item routerLink="/search" routerLinkActive="active">
-            <mat-icon>search</mat-icon>
-            <span>Search</span>
-          </mat-list-item>
-          <!-- <mat-list-item routerLink="/settings" routerLinkActive="active">
-            <mat-icon>settings</mat-icon>
-            <span>Settings</span>
-          </mat-list-item> -->
         </mat-list>
       </div>
   
@@ -99,4 +102,5 @@
   </div>
   
   <app-footer></app-footer>
+  
   

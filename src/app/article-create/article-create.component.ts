@@ -20,6 +20,7 @@ export class ArticleCreateComponent {
       channelName: ['', Validators.required],
       description: ['', Validators.required],
       thumbnail: ['', Validators.required],
+      title: ['', Validators.required], // Add the title form control
     });
   }
 

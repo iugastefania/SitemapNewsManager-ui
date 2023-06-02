@@ -118,14 +118,13 @@
   <h3>Search Results</h3>
   <mat-card *ngFor="let article of searchResults" class="search-result-card">
     <mat-card-header>
-      <mat-card-title>Found it!</mat-card-title>
+      <mat-card-title>{{ article.title }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="details-row">
-        <div class="details-label">Article url:</div>
+        <div class="details-label">Article URL:</div>
         <div class="details-value">{{ article.loc }}</div>
       </div>
-
       <div class="details-row">
         <div class="details-label">Channel Name:</div>
         <div class="details-value">{{ article.channelName }}</div>

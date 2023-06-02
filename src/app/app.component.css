@@ -11,3 +11,12 @@
   .app-footer {
     margin-top: auto;
   }
+
+  .toolbar-icon {
+    margin-right: 2px; 
+  }
+  
+  .toolbar-text {
+    margin-left: 2px; /* Adjust the margin value as per your desired spacing */
+  }
+  

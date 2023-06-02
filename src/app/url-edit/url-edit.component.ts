@@ -52,7 +52,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ArticleService } from '../services/article.service';
-import { MatDialog } from '@angular/material/dialog';
 import { Url } from '../models/url.model';
 
 @Component({
@@ -67,9 +66,7 @@ export class UrlEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private articleService: ArticleService,
-    private dialogRef: MatDialogRef<UrlEditComponent>, // Inject the MatDialogRef
-      // Remove the MatDialog injection
-    private dialog: MatDialog
+    private dialogRef: MatDialogRef<UrlEditComponent>
   ) {}
 
   ngOnInit() {
