@@ -33,4 +33,20 @@ export class SearchComponent {
       }
     );
   }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true
+    };
+
+    return date.toLocaleString('en-US', options);
+  }
+
 }

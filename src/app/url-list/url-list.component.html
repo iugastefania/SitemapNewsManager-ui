@@ -237,7 +237,7 @@
   <p>No articles found.</p>
 </div> -->
 
-<h2>List of Articles</h2>
+<h2>Articles</h2>
 
 <div *ngIf="articles.length === 0" class="no-articles">
   <p>No articles found.</p>
@@ -265,9 +265,9 @@
         <button mat-icon-button color="warn" (click)="deleteUrl(article)">
           <mat-icon>delete</mat-icon>
         </button>
-        <button mat-icon-button (click)="moreDetails(article)">
+        <a [href]="article.loc" target="_blank" mat-icon-button color="primary">
           <mat-icon>visibility</mat-icon>
-        </button>
+        </a>        
       </td>
     </ng-container>
 

@@ -161,6 +161,7 @@ export class UrlListComponent implements OnInit, AfterViewInit {
   totalItems: number = 0; // Total number of articles
   dataSource!: MatTableDataSource<Url>;
   displayedColumns: string[] = ['thumbnail', 'title', 'actions'];
+  selectedUrl: Url | null = null; // Selected URL
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private router: Router, private route: ActivatedRoute, private articleService: ArticleService) {}
@@ -172,6 +173,11 @@ export class UrlListComponent implements OnInit, AfterViewInit {
         this.loadArticles();
       }
     });
+    
+    const storedUrl = localStorage.getItem('selectedUrl');
+    if (storedUrl) {
+      this.selectedUrl = JSON.parse(storedUrl);
+    }
   }
 
   ngAfterViewInit() {
@@ -179,7 +185,11 @@ export class UrlListComponent implements OnInit, AfterViewInit {
   }
 
   viewUrlDetails(url: Url) {
-    this.router.navigate(['/url-details', url.loc]);
+    this.selectedUrl = url;
+    localStorage.setItem('selectedUrl', JSON.stringify(url));
+    if (this.selectedUrl === url) {
+      this.router.navigate(['/url-details', url.loc]);
+    }
   }
 
   deleteUrl(url: Url) {
@@ -196,9 +206,9 @@ export class UrlListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  moreDetails(url: Url) {
-    window.open(url.loc, '_blank');
-  }  
+  // moreDetails(url: Url) {
+  //   window.open(url.loc, '_blank');
+  // }
 
   loadArticles() {
     this.currentPage = 0; // Reset current page when loading new articles

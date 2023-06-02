@@ -6,6 +6,7 @@ import { Url } from '../models/url.model';
 @Component({
   selector: 'app-article-create',
   templateUrl: './article-create.component.html',
+  styleUrls: ['./article-create.component.css']
 })
 export class ArticleCreateComponent {
   articleForm: FormGroup;
