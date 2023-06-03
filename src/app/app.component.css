@@ -17,6 +17,34 @@
   }
   
   .toolbar-text {
-    margin-left: 2px; /* Adjust the margin value as per your desired spacing */
+    margin-left: 2px; 
   }
   
+
+   /* .main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #212121; 
+    }
+    
+    .container {
+    flex: 1;
+    }
+    
+    .app-footer {
+    margin-top: auto;
+    background-color: #303030;
+    padding: 20px;
+    color: #fff; 
+    }
+    
+    .toolbar-icon {
+    margin-right: 2px;
+    color: #fff; 
+    }
+    
+    .toolbar-text {
+    margin-left: 2px;
+    color: #fff;
+    } */

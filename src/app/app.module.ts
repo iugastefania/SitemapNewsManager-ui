@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UrlEditPopupComponent } from './url-edit-popup/url-edit-popup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
     UrlEditPopupComponent,
     DashboardComponent,
     ArticleCreateComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
     MatIconModule,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

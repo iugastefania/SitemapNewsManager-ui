@@ -36,6 +36,12 @@ export class SearchComponent {
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
+  
+    if (isNaN(date.getTime())) {
+      // Return the original string if the date is invalid
+      return dateString;
+    }
+  
     const options: Intl.DateTimeFormatOptions = {
       day: 'numeric',
       month: 'long',
@@ -45,7 +51,7 @@ export class SearchComponent {
       second: 'numeric',
       hour12: true
     };
-
+  
     return date.toLocaleString('en-US', options);
   }
 

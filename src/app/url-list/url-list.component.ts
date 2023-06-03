@@ -147,6 +147,8 @@ import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-url-list',
@@ -156,7 +158,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class UrlListComponent implements OnInit, AfterViewInit {
   channelName: string = ''; // Selected channel name
   articles: Url[] = [];
-  pageSize: number = 10; // Number of articles per page
+  pageSize: number = 30; // Number of articles per page
   currentPage: number = 0; // Current page (0-based index)
   totalItems: number = 0; // Total number of articles
   dataSource!: MatTableDataSource<Url>;
@@ -164,7 +166,7 @@ export class UrlListComponent implements OnInit, AfterViewInit {
   selectedUrl: Url | null = null; // Selected URL
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router: Router, private route: ActivatedRoute, private articleService: ArticleService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private articleService: ArticleService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -193,18 +195,30 @@ export class UrlListComponent implements OnInit, AfterViewInit {
   }
 
   deleteUrl(url: Url) {
-    console.log('Delete URL:', url);
+    // Open a confirmation dialog
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Are you sure you want to delete this article?'
+    });
 
-    this.articleService.deleteArticle(url.loc).subscribe(
-      (response: string) => {
-        console.log('URL deleted successfully:', response);
-        this.loadArticles();
-      },
-      (error: any) => {
-        console.error('Failed to delete URL:', error);
+    // Subscribe to the dialog afterClosed event
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        // User confirmed the deletion
+        console.log('Delete URL:', url);
+
+        this.articleService.deleteArticle(url.loc).subscribe(
+          (response: string) => {
+            console.log('URL deleted successfully:', response);
+            this.loadArticles();
+          },
+          (error: any) => {
+            console.error('Failed to delete URL:', error);
+          }
+        );
       }
-    );
+    });
   }
+
 
   // moreDetails(url: Url) {
   //   window.open(url.loc, '_blank');
