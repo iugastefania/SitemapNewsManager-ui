@@ -60,7 +60,7 @@ import { Url } from '../models/url.model';
   styleUrls: ['./url-edit.component.css']
 })
 export class UrlEditComponent implements OnInit {
-  article: Url = new Url(); // Create an instance of the Url model
+  article: Url = new Url(); 
 
   constructor(
     private route: ActivatedRoute,
@@ -70,10 +70,8 @@ export class UrlEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Retrieve the URL location from the route parameters
     const loc = this.route.snapshot.params['loc'];
 
-    // Fetch the URL details using the location from your data source
     this.articleService.getArticle(loc).subscribe(
       (url: Url) => {
         this.article = url;
@@ -85,11 +83,9 @@ export class UrlEditComponent implements OnInit {
   }
 
   submitForm() {
-    // Call the updateArticle method from the ArticleService passing the updated article
     this.articleService.updateArticle(this.article).subscribe(
       (response: string) => {
         console.log('URL updated successfully:', response);
-        // Close the dialog and pass the updated article as the result
         this.dialogRef.close(this.article);
       },
       (error: any) => {

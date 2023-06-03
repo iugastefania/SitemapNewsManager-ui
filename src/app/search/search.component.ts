@@ -23,12 +23,12 @@ export class SearchComponent {
     this.articleService.getArticle(this.searchQuery.loc).subscribe(
       (article: Url) => {
         this.searchResults = [article];
-        this.showNoResultsMessage = this.searchResults.length === 0; // Show "No results found" message if searchResults is empty
+        this.showNoResultsMessage = this.searchResults.length === 0; 
         console.log('Search Results:', this.searchResults);
       },
       (error: any) => {
-        this.searchResults = []; // Clear the searchResults array
-        this.showNoResultsMessage = true; // Show "No results found" message
+        this.searchResults = []; 
+        this.showNoResultsMessage = true; 
         console.error(error);
       }
     );
@@ -38,7 +38,6 @@ export class SearchComponent {
     const date = new Date(dateString);
   
     if (isNaN(date.getTime())) {
-      // Return the original string if the date is invalid
       return dateString;
     }
   

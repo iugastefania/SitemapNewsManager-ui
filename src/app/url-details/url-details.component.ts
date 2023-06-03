@@ -18,7 +18,7 @@ export class UrlDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private router: Router,
-    private dialog: MatDialog // Inject the MatDialog service
+    private dialog: MatDialog 
   ) { }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class UrlDetailsComponent implements OnInit {
       this.articleService.getArticle(loc).subscribe(
         (url: Url) => {
           this.article = url;
-          this.formatDate(); // Format the date when the article is fetched
+          this.formatDate();
         },
         (error: any) => {
           console.error('Failed to fetch URL details:', error);
@@ -41,7 +41,6 @@ export class UrlDetailsComponent implements OnInit {
       const date = new Date(this.article.lastmod);
 
       if (isNaN(date.getTime())) {
-        // Return the original string if the date is invalid
         this.formattedDate = this.article.lastmod;
       } else {
         const options: Intl.DateTimeFormatOptions = {
@@ -60,16 +59,13 @@ export class UrlDetailsComponent implements OnInit {
   }
 
   editArticle() {
-    // Open the dialog
     const dialogRef = this.dialog.open(UrlEditPopupComponent, {
       width: '600px',
       data: this.article
     });
 
-    // Handle the dialog result
     dialogRef.afterClosed().subscribe((result: Url) => {
       if (result) {
-        // Update the article with the updated values
         this.article = result;
       }
     });

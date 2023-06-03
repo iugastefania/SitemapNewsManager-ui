@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'article-create', component: ArticleCreateComponent },
   { path: 'search', component: SearchComponent },
-  // Add any additional routes here if needed
 ];
 
 

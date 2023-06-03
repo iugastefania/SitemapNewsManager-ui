@@ -11,7 +11,7 @@ export class ArticleService {
   
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://localhost:8080'; // Update with your server URL
+  private baseUrl = 'http://localhost:8080'; 
 
 
   getAllUrls(): Observable<Url[]> {

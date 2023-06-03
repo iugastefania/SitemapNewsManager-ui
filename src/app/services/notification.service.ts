@@ -9,14 +9,14 @@ export class NotificationService {
 
   showSuccess(message: string) {
     this.snackBar.open(message, 'Close', {
-      duration: 3000, // Duration in milliseconds
+      duration: 3000, 
       panelClass: ['success-notification']
     });
   }
 
   showError(message: string) {
     this.snackBar.open(message, 'Close', {
-      duration: 5000, // Duration in milliseconds
+      duration: 5000, 
       panelClass: ['error-notification']
     });
   }
