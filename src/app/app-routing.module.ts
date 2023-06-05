@@ -8,6 +8,8 @@ import { UrlEditComponent } from './url-edit/url-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { SearchComponent } from './search/search.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'article-create', component: ArticleCreateComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'authentication', component: AuthenticationComponent },
 ];
 
 

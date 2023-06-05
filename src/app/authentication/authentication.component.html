@@ -1,0 +1,47 @@
+<mat-card *ngIf="loggedUser==undefined">
+    <mat-card-content>
+      <div class="container">
+        <div class="logo">Autentificare</div>
+        <pre></pre>
+        <br>
+        <div class="login-item">
+          <form  [formGroup]="loginForm" (ngSubmit)=onSubmit() class="form-register">
+  
+            <pre></pre>
+  
+            <mat-form-field class="mat-form-field" appearance="fill">
+              <mat-label>Username: </mat-label>
+              <input matInput formControlName="username">
+            </mat-form-field>
+  
+  
+            <pre></pre>
+  
+            <mat-form-field class="mat-form-field" appearance="fill">
+              <mat-label>Parolă</mat-label>
+              <input matInput   formControlName="password" required type="password">
+            </mat-form-field>
+            <pre></pre>
+            <br>
+  
+            <div class="mat-form-field">
+              <button mat-raised-button color="warm">Login</button>
+            </div>
+  
+          </form>
+  
+        </div>
+      </div>
+      <pre></pre>
+      <div style="color: green; font-size: xx-large" *ngIf="isSuccessful">
+         Conectare cu succes!
+      </div>
+      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignUpFailed">
+        Username-ul sau parola sunt incorecte!
+      </div>
+      <pre></pre>
+      <p style=" font-size: large">Nu ai un cont?</p>
+      <a routerLink="/register"  style="font-size: xx-large">Înregistrare</a>
+    </mat-card-content>
+  </mat-card>
+  

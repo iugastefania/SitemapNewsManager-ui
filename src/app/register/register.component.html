@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-content>
+      <div class="container">
+        <div class="logo">Înregistrare</div>
+        <pre></pre>
+        <br>
+        <div class="register-item">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-register">
+  
+            <pre></pre>
+  
+            <mat-form-field class="mat-form-field" appearance="fill">
+              <mat-label>Email: </mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+  
+            <pre></pre>
+
+            <mat-form-field class="mat-form-field" appearance="fill">
+              <mat-label>Username: </mat-label>
+              <input matInput formControlName="username">
+            </mat-form-field>
+  
+            <pre></pre>
+  
+            <mat-form-field class="mat-form-field" appearance="fill">
+              <mat-label>Password: </mat-label>
+              <input matInput formControlName="password"   required type="password">
+            </mat-form-field>
+            <pre></pre>
+
+            <mat-form-field class="mat-form-field" appearance="fill">
+                <mat-label>Role: </mat-label>
+                <input matInput formControlName="role"   required type="role">
+              </mat-form-field>
+              <pre></pre>
+            <br>
+  
+            <div class="mat-form-field">
+              <button mat-raised-button color="warm">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <pre></pre>
+      <div style="color: green; font-size: xx-large" *ngIf="isSuccessful">
+        Inregistrare cu succes!
+      </div>
+      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignUpFailed">
+        Inregistrare esuata!
+      </div>
+      <pre></pre>
+      <p style="color: red; font-size: large">Ai un cont?</p>
+      <a routerLink="/authentication" style=" font-size: xx-large">Autentificare</a>
+    </mat-card-content>
+  </mat-card>
+  

@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'sitemap-news-manager-ui';
   isLoggedIn: any;
   loggedUser: User | undefined;
-  
+
   constructor(private authService:AuthService) {
   }
 

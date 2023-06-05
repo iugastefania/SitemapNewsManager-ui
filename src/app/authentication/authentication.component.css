@@ -1,0 +1,59 @@
+mat-card {
+    max-width: 600px;
+    max-height: 1000px;
+    margin:auto;
+    margin-top: 100px;
+    text-align: center;
+    background-color: darkseagreen;
+    margin-bottom: 100px;
+    font-size: xx-large;
+    border: 1px solid darkgreen;
+    border-top: 1px solid darkgreen;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  
+  
+  mat-form-field {
+    display: block;
+    text-align: center;
+    background-color: floralwhite;
+  
+  }
+  
+  label{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .logo{
+    font-size: xx-large;
+    color: saddlebrown;
+  }
+  
+  
+  /*//FROM HERE ALERT*/
+  .alert {
+    padding: 20px;
+    background-color: #245e22; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    width: fit-content;
+  }
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+  

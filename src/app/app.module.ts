@@ -30,7 +30,8 @@ import { UrlEditPopupComponent } from './url-edit-popup/url-edit-popup.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { AdministrativeComponent } from './administrative/administrative.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdministrativeComponent } from './administrative/administrative.compone
     DashboardComponent,
     ArticleCreateComponent,
     ConfirmationDialogComponent,
-    AdministrativeComponent,
+    AuthenticationComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
