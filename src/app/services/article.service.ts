@@ -9,14 +9,10 @@ import { Sitemap } from '../models/sitemap.model';
 })
 export class ArticleService {
   
+  private baseUrl = 'http://localhost:8080/api/app';
+
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://localhost:8080'; 
-
-
-  getAllUrls(): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.baseUrl}/getAllUrls`);
-  }
   
   getArticle(loc: string): Observable<Url> {
     return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
@@ -31,7 +27,11 @@ export class ArticleService {
   }
 
   deleteArticle(loc: string): Observable<string> {
-    return this.http.delete<string>(`${this.baseUrl}/deleteArticle`, { body: loc });
+    return this.http.delete<string>(`${this.baseUrl}/deleteArticle?loc=${loc}`);
+  }
+
+  getAllArticlesByChannel(channelName: string): Observable<Url[]> {
+    return this.http.get<Url[]>(`${this.baseUrl}/getAllArticlesByChannel/${channelName}`);
   }
 
   addArticleToChannel(channelName: string, article: Url): Observable<string> {
@@ -50,25 +50,27 @@ export class ArticleService {
     return this.http.get<string[]>(`${this.baseUrl}/channelNames`);
   }
 
-  getAllArticlesByChannel(channelName: string): Observable<Url[]> {
-    const url = `${this.baseUrl}/getAllArticlesByChannel/${channelName}`;
-    return this.http.get<Url[]>(url);
-  }
-
-  countUrlsByChannel(channelName: string): Observable<number> {
-    return this.http.get<number>(`${this.baseUrl}/countUrlsByChannel?channelName=${channelName}`);
-  }
-
-  latestArticleByChannel(channelName: string): Observable<string> {
-    return this.http.get<string>(`${this.baseUrl}/latestArticleByChannel?channelName=${channelName}`);
-  }
-
   getSitemapNews(): Observable<Sitemap[]> {
     return this.http.get<Sitemap[]>(`${this.baseUrl}/getSitemapNews`);
   }
 
   getUrlNews(): Observable<Url[]> {
     return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`);
-  }  
-}
+  }
 
+  getAllUrls(): Observable<Url[]> {
+    return this.http.get<Url[]>(`${this.baseUrl}/getAllUrls`);
+  }
+
+  countUrlsByChannel(channelName: string): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/countUrlsByChannel?channelName=${channelName}`);
+  }
+
+  latestArticleByChannel(channelName: string): Observable<Map<string, string>> {
+    return this.http.get<Map<string, string>>(`${this.baseUrl}/latestArticleByChannel?channelName=${channelName}`);
+  }
+
+  triggerSitemapNewsMapping(): Observable<string> {
+    return this.http.post<string>(`${this.baseUrl}/triggerSitemapNewsMapping`, {});
+  }
+}

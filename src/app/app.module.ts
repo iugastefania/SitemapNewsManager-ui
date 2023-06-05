@@ -30,6 +30,7 @@ import { UrlEditPopupComponent } from './url-edit-popup/url-edit-popup.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { AdministrativeComponent } from './administrative/administrative.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     DashboardComponent,
     ArticleCreateComponent,
     ConfirmationDialogComponent,
+    AdministrativeComponent,
   ],
   imports: [
     BrowserModule,

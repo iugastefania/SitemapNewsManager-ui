@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./services/auth.service";
+import {User} from "./models/user.model";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'sitemap-news-manager-ui';
+  isLoggedIn: any;
+  loggedUser: User | undefined;
+  
+  constructor(private authService:AuthService) {
+  }
+
+  ngOnInit(): void {
+    if( localStorage.getItem("loggedUser") != null)
+      this.loggedUser=this.authService.loggedUser;
+  }
+  ngOnChange(){
+    if( localStorage.getItem("loggedUser") != null)
+      this.loggedUser=this.authService.loggedUser;
+  }
+
+  logout() {
+    localStorage.removeItem('loggedUser')
+    this.loggedUser=undefined;
+  }
+
 }
