@@ -17,17 +17,17 @@ import {authViewerGuard} from "./helpers/auth-viewer.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'url-details/:id', component: UrlDetailsComponent },
-  { path: 'url-list', component: UrlListComponent },
-  { path: 'channel-list', component: ChannelListComponent },
+  { path: 'url-details/:id', component: UrlDetailsComponent, canActivate:[authEditorGuard] },
+  { path: 'url-list', component: UrlListComponent, canActivate:[authViewerGuard] },
+  { path: 'channel-list', component: ChannelListComponent, canActivate:[authViewerGuard] },
   { path: 'home', component: HomeComponent },
-  { path: 'url-edit/:id', component: UrlEditComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'article-create', component: ArticleCreateComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'url-edit/:id', component: UrlEditComponent, canActivate:[authEditorGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[authViewerGuard] },
+  { path: 'article-create', component: ArticleCreateComponent, canActivate:[authEditorGuard] },
+  { path: 'search', component: SearchComponent, canActivate:[authViewerGuard] },
+  { path: 'register', component: RegisterComponent,  },
   { path: 'authentication', component: AuthenticationComponent },
-  { path: 'admin', component: AdminDashboardComponent, canActivate:[authAdminGuard], },
+  { path: 'admin', component: AdminDashboardComponent, canActivate:[authAdminGuard] },
 ];
 
 

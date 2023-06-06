@@ -30,4 +30,19 @@ export class AppComponent {
     this.loggedUser=undefined;
   }
 
+  isAdmin(): boolean {
+    const role = this.authService.loggedUser?.role;
+    return role === 'ADMINISTRATOR';
+  }
+
+  isEditorOrAdmin(): boolean {
+    const role = this.authService.loggedUser?.role;
+    return role === 'ADMINISTRATOR' || role === 'EDITOR';
+  }
+
+  isViewerOrEditorOrAdmin(): boolean {
+    const role = this.authService.loggedUser?.role;
+    return role === 'VIEWER' || role === 'ADMINISTRATOR' || role === 'EDITOR';
+  }
+
 }

@@ -1,57 +1,65 @@
 <div class="main-container">
-    <mat-toolbar color="primary" routerLink="/home">
-      <mat-icon class="toolbar-icon">web</mat-icon>
-      <span class="toolbar-text">Sitemap News Manager</span>
-    </mat-toolbar>
-  
-    <div class="container">
-      <div class="sidebar">
-        <mat-list>
-          <mat-list-item routerLink="/home" routerLinkActive="active">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/dashboard" routerLinkActive="active">
-            <mat-icon>dashboard</mat-icon>
-            <span>Dashboard</span>
-          </mat-list-item>
-          <!-- <mat-list-item routerLink="/channel-list" routerLinkActive="active">
-            <mat-icon>rss_feed</mat-icon>
-            <span>Channels</span>
-          </mat-list-item> -->
-          <mat-list-item routerLink="/search" routerLinkActive="active">
-            <mat-icon>search</mat-icon>
-            <span>Search</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/article-create" routerLinkActive="active">
-            <mat-icon>article</mat-icon>
-            <span>Create Article</span>
-          </mat-list-item>
-        </mat-list>
-        <div class="menu_right" *ngIf="!loggedUser">
-          <button mat-button routerLink="/authentication"  style=" align-self: self-end;
-                  display: flex;
-                  flex-direction: column;
-                  font-size: larger;
-                  color: #05794d;
-                  " routerLinkActive="active">Authentication</button>
-        </div>
-        <div class="menu_right" *ngIf="loggedUser">
-          <a routerLink="/profile" routerLinkActive="active"  *ngIf="loggedUser" style="color: black; font-size: xx-large"><span style="font-size: xx-large;"><mat-icon style="font-size: xx-large; color: coral">account_circle</mat-icon>&nbsp;&nbsp;{{loggedUser.username}}</span></a>
-          <a mat-button style=" align-self: self-end;
-                  display: flex;
-                  font-size: medium;
-                  color: red;
-                  flex-direction: column;" routerLink="" routerLinkActive="active" (click)="logout()">Log out</a>
-        </div>
+  <mat-toolbar color="primary" routerLink="/home">
+    <mat-icon class="toolbar-icon">web</mat-icon>
+    <span class="toolbar-text">Sitemap News Manager</span>
+  </mat-toolbar>
+
+  <div class="container">
+    <div class="sidebar">
+      <mat-list>
+        <mat-list-item routerLink="/home" routerLinkActive="active">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/dashboard" routerLinkActive="active" *ngIf="isViewerOrEditorOrAdmin()">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </mat-list-item>
+        <!-- <mat-list-item routerLink="/channel-list" routerLinkActive="active">
+          <mat-icon>rss_feed</mat-icon>
+          <span>Channels</span>
+        </mat-list-item> -->
+        <mat-list-item routerLink="/search" routerLinkActive="active" *ngIf="isViewerOrEditorOrAdmin()">
+          <mat-icon>search</mat-icon>
+          <span>Search</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/article-create" routerLinkActive="active"  *ngIf="isEditorOrAdmin()">
+          <mat-icon>article</mat-icon>
+          <span>Create Article</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin()">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <span>Admin</span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+
+      <div class="menu_right" *ngIf="!loggedUser">
+        <button mat-button routerLink="/authentication" class="menu-button" routerLinkActive="active">
+          <mat-icon class="menu-icon">lock</mat-icon>
+          <span>Authentication</span>
+        </button>
+      </div>
+
+      <div class="menu_right" *ngIf="loggedUser">
+        <a routerLink="/profile" routerLinkActive="active" *ngIf="loggedUser" class="profile-link">
+          <mat-icon class="profile-icon">account_circle</mat-icon>
+          <span class="profile-username">{{ loggedUser.username }}</span>
+        </a>
+        <a mat-button class="logout-button" routerLink="" routerLinkActive="active" (click)="logout()">
+          <mat-icon class="logout-icon">exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
+      </div>
       </div>
   
       <div class="content">
         <router-outlet></router-outlet>
-      </div>
     </div>
   </div>
-  
-  <app-footer></app-footer>
-  
-  
+</div>
+
+<app-footer></app-footer>

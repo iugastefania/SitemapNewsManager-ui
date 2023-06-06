@@ -60,6 +60,7 @@ export class AdminDashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: User) => {
       if (result) {
       }
+      this.getAllUsers();
     });
   }
 }
