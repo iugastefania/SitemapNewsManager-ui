@@ -2,6 +2,22 @@
     <mat-toolbar color="primary" routerLink="/home">
       <mat-icon class="toolbar-icon">web</mat-icon>
       <span class="toolbar-text">Sitemap News Manager</span>
+      <!-- <div class="menu_right" *ngIf="!loggedUser">
+        <button mat-button routerLink="/authentication"  style=" align-self: self-end;
+                display: flex;
+                flex-direction: column;
+                font-size: larger;
+                color: #05794d;
+                " routerLinkActive="active">Authentication</button>
+      </div>
+      <div class="menu_right" *ngIf="loggedUser">
+        <a routerLink="/profile" routerLinkActive="active"  *ngIf="loggedUser" style="color: black; font-size: xx-large"><span style="font-size: xx-large;"><mat-icon style="font-size: xx-large; color: coral">account_circle</mat-icon>&nbsp;&nbsp;{{loggedUser.username}}</span></a>
+        <a mat-button style=" align-self: self-end;
+                display: flex;
+                font-size: medium;
+                color: red;
+                flex-direction: column;" routerLink="" routerLinkActive="active" (click)="logout()">Log out</a>
+      </div> -->
     </mat-toolbar>
   
     <div class="container">
@@ -34,7 +50,7 @@
                   flex-direction: column;
                   font-size: larger;
                   color: #05794d;
-                  " routerLinkActive="active">Autentificare</button>
+                  " routerLinkActive="active">Authentication</button>
         </div>
         <div class="menu_right" *ngIf="loggedUser">
           <a routerLink="/profile" routerLinkActive="active"  *ngIf="loggedUser" style="color: black; font-size: xx-large"><span style="font-size: xx-large;"><mat-icon style="font-size: xx-large; color: coral">account_circle</mat-icon>&nbsp;&nbsp;{{loggedUser.username}}</span></a>
@@ -42,7 +58,7 @@
                   display: flex;
                   font-size: medium;
                   color: red;
-                  flex-direction: column;" routerLink="" routerLinkActive="active" (click)="logout()">Logout</a>
+                  flex-direction: column;" routerLink="" routerLinkActive="active" (click)="logout()">Log out</a>
         </div>
       </div>
   

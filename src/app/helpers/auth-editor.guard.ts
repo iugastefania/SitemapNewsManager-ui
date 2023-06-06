@@ -14,7 +14,7 @@ export class authEditorGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   if (this.authService.loggedUser?.role == 'ADMIN' || this.authService.loggedUser?.role === 'EDITOR')
+   if (this.authService.loggedUser?.role == 'ADMINISTRATOR' || this.authService.loggedUser?.role === 'EDITOR')
    {}
    else {
      this.router.navigate(['/'])

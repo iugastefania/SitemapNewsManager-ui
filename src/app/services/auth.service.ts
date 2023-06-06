@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormGroup} from "@angular/forms";
-import {FormControl, Validators} from "@angular/forms";
 import {User} from "../models/user.model";
 import {AppSettings} from "../AppSettings";
 
@@ -39,12 +38,12 @@ export class AuthService {
   }
 
   async setLoggedUser(data: any) {
-    this._loggedUser=data;
+    this._loggedUser = data;
     localStorage.setItem('loggedUser',JSON.stringify(this._loggedUser));
   }
 
   get loggedUser(): User | undefined{
-    this._loggedUser=JSON.parse(<string>localStorage.getItem('loggedUser'));
+    this._loggedUser = JSON.parse(<string>localStorage.getItem('loggedUser'));
     console.log(this._loggedUser)
     return this._loggedUser;
   }

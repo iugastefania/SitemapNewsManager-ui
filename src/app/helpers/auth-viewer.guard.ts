@@ -14,7 +14,7 @@ export class authViewerGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   if (this.authService.loggedUser?.role == 'ADMIN' || this.authService.loggedUser?.role === 'EDITOR'  || this.authService.loggedUser?.role === 'VIEWER')
+   if (this.authService.loggedUser?.role == 'ADMINISTRATOR' || this.authService.loggedUser?.role === 'EDITOR'  || this.authService.loggedUser?.role === 'VIEWER')
    {}
    else {
      this.router.navigate(['/'])

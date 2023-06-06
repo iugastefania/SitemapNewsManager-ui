@@ -32,6 +32,7 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RegisterComponent } from './register/register.component';
     ConfirmationDialogComponent,
     AuthenticationComponent,
     RegisterComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,

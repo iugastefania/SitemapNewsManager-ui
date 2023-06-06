@@ -1,7 +1,7 @@
 <mat-card *ngIf="loggedUser==undefined">
     <mat-card-content>
       <div class="container">
-        <div class="logo">Autentificare</div>
+        <div class="logo">Authentication</div>
         <pre></pre>
         <br>
         <div class="login-item">
@@ -18,7 +18,7 @@
             <pre></pre>
   
             <mat-form-field class="mat-form-field" appearance="fill">
-              <mat-label>Parolă</mat-label>
+              <mat-label>Password: </mat-label>
               <input matInput   formControlName="password" required type="password">
             </mat-form-field>
             <pre></pre>
@@ -34,14 +34,14 @@
       </div>
       <pre></pre>
       <div style="color: green; font-size: xx-large" *ngIf="isSuccessful">
-         Conectare cu succes!
+         Successfully authenticatificated!
       </div>
-      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignUpFailed">
-        Username-ul sau parola sunt incorecte!
+      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignInFailed">
+        Wrong username-ul or password!
       </div>
       <pre></pre>
-      <p style=" font-size: large">Nu ai un cont?</p>
-      <a routerLink="/register"  style="font-size: xx-large">Înregistrare</a>
+      <p style=" font-size: large">New?</p>
+      <a routerLink="/register"  style="font-size: xx-large">Register</a>
     </mat-card-content>
   </mat-card>
   

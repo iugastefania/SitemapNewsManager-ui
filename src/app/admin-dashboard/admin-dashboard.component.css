@@ -1,0 +1,22 @@
+.user-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  mat-icon {
+    margin-right: 5px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  

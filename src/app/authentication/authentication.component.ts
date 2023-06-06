@@ -14,7 +14,7 @@ export class AuthenticationComponent implements OnInit {
 
 
   isSuccessful = false;
-  isSignUpFailed = false;
+  isSignInFailed = false;
   errorMessage = '';
   public loggedUser: User | undefined;
 
@@ -31,13 +31,13 @@ export class AuthenticationComponent implements OnInit {
       data => {
         this.loggedUser=data.body
         this.isSuccessful = true;
-        this.isSignUpFailed = false;
+        this.isSignInFailed = false;
         this.authService.setLoggedUser(data.body);
         window.location.reload();
         },
       err => {
         this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
+        this.isSignInFailed = true;
       }
     );
   }

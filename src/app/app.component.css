@@ -20,3 +20,55 @@
     margin-left: 2px; 
   }
   
+  .menu{
+    margin: auto;
+    align-self: center;
+    font-size: large;
+    text-align: center;
+  
+  }
+  
+  
+  button{
+   background-color: floralwhite;
+    color:green;
+    font-size: xx-large;
+    margin-right: 10px;
+    border: white;
+    border-bottom-width: 10px;
+  }
+  
+  .menuButton{
+    background-color: #ffeac0;
+  
+    font-size: medium;
+  }
+  
+  .menu_right{
+    margin: auto;
+    alignment-baseline: bottom;
+    font-size: large;
+    text-align: right;
+    align-self: self-end;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo{
+    margin: auto;
+    font-size: xx-large;
+    text-align: center;
+    image-resolution: inherit;
+    align-self: center;
+    color: darkgreen;
+    margin-top: 10px;
+  
+  }
+  
+  
+  .logo img{
+    height: 100px;
+  
+  }
+  
+  

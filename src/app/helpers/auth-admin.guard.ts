@@ -14,7 +14,7 @@ export class authAdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   if (this.authService.loggedUser?.role == 'ADMIN')
+   if (this.authService.loggedUser?.role == 'ADMINISTRATOR')
    {}
    else {
      this.router.navigate(['/'])

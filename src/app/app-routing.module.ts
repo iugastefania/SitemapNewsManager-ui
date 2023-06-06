@@ -10,7 +10,10 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
 import { SearchComponent } from './search/search.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegisterComponent } from './register/register.component';
-
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import {authAdminGuard} from "./helpers/auth-admin.guard";
+import {authEditorGuard} from "./helpers/auth-editor.guard";
+import {authViewerGuard} from "./helpers/auth-viewer.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,6 +27,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'authentication', component: AuthenticationComponent },
+  { path: 'admin', component: AdminDashboardComponent, canActivate:[authAdminGuard], },
 ];
 
 
