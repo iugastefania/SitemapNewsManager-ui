@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../services/auth.service";
-import {FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { AuthService } from "../services/auth.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular
 })
 export class RegisterComponent implements OnInit {
 
+  roles: string[] = ['EDITOR', 'VIEWER']; 
 
   ngOnInit(): void {
   }

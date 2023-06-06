@@ -29,23 +29,31 @@ export class AuthenticationComponent implements OnInit {
   async onSubmit(): Promise<any>  {
     this.authService.login(this.loginForm).subscribe(
       data => {
-        this.loggedUser=data.body
+        const user: User = {
+          id: data.body.id,
+          email: data.body.email,
+          username: data.body.username,
+          role: data.body.role
+        };
         this.isSuccessful = true;
         this.isSignInFailed = false;
-        this.authService.setLoggedUser(data.body);
+        this.authService.setLoggedUser(user);
         window.location.reload();
-        },
+      },
       err => {
         this.errorMessage = err.error.message;
         this.isSignInFailed = true;
       }
     );
   }
+  
 
   ngOnInit(): void {
-    this.loggedUser=this.authService.loggedUser;
-    if( this.loggedUser != null){
-      this.router.navigateByUrl("/")
+    this.loggedUser = this.authService.loggedUser;
+    if (this.loggedUser != null) {
+      this.router.navigateByUrl("/");
     }
   }
+  
+  
 }

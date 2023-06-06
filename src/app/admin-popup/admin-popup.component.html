@@ -5,7 +5,7 @@
         <pre></pre>
         <br>
         <div class="register-item">
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-register">
+          <form [formGroup]="adminForm" (ngSubmit)="onSubmit()" class="form-register">
   
             <pre></pre>
   
@@ -54,8 +54,6 @@
         Registration failed!
       </div>
       <pre></pre>
-      <p style="color: red; font-size: large">Already have an account?</p>
-      <a routerLink="/authentication" style=" font-size: xx-large">Authenticate</a>
     </mat-card-content>
   </mat-card>
   

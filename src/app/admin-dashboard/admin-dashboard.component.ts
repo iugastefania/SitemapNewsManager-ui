@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
 import { User } from '../models/user.model';
+import { AdminPopupComponent } from "../admin-popup/admin-popup.component";
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -11,7 +14,10 @@ export class AdminDashboardComponent implements OnInit {
   users: User[] = [];
   errorMessage: string = '';
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,     
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog ) { }
 
   ngOnInit() {
     this.getAllUsers();
@@ -23,11 +29,12 @@ export class AdminDashboardComponent implements OnInit {
         this.users = users;
       },
       error => {
-        this.errorMessage = error.error;
+        this.errorMessage = error;
         console.log('Error retrieving users:', error);
       }
     );
   }
+  
 
   deleteUser(username: string) {
     if (confirm('Are you sure you want to delete this user?')) {
@@ -42,5 +49,17 @@ export class AdminDashboardComponent implements OnInit {
         }
       );
     }
+  }
+
+
+  registerUser() {
+    const dialogRef = this.dialog.open(AdminPopupComponent, {
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: User) => {
+      if (result) {
+      }
+    });
   }
 }

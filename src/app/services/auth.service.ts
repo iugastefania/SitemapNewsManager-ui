@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {Observable, catchError, throwError} from "rxjs";
 import {FormGroup} from "@angular/forms";
 import {User} from "../models/user.model";
 import {AppSettings} from "../AppSettings";
@@ -46,6 +46,22 @@ export class AuthService {
     this._loggedUser = JSON.parse(<string>localStorage.getItem('loggedUser'));
     console.log(this._loggedUser)
     return this._loggedUser;
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(AUTH_API + 'users').pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          return throwError('Access Denied. Only an ADMINISTRATOR can view all users.');
+        }
+        return throwError('Error retrieving users.');
+      })
+    );
+  }
+  
+
+  deleteUser(username: string): Observable<any> {
+    return this.http.delete(`${AUTH_API}users/${username}`, httpOptions);
   }
 
 }

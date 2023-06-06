@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminPopupComponent } from './admin-popup/admin-popup.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AuthenticationComponent,
     RegisterComponent,
     AdminDashboardComponent,
+    AdminPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +75,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
