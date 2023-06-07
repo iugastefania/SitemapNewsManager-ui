@@ -1,115 +1,4 @@
-<!-- <mat-card>
-    <mat-card-content>
-      <div class="container">
-        <div class="logo">Registration</div>
-        <pre></pre>
-        <br>
-        <div class="register-item">
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-register">
-  
-            <pre></pre>
-  
-            <mat-form-field class="mat-form-field" appearance="fill">
-              <mat-label>Email: </mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
-  
-            <pre></pre>
-
-            <mat-form-field class="mat-form-field" appearance="fill">
-              <mat-label>Username: </mat-label>
-              <input matInput formControlName="username">
-            </mat-form-field>
-  
-            <pre></pre>
-  
-            <mat-form-field class="mat-form-field" appearance="fill">
-              <mat-label>Password: </mat-label>
-              <input matInput formControlName="password"   required type="password">
-            </mat-form-field>
-            <pre></pre>
-
-            <mat-form-field class="mat-form-field" appearance="fill">
-              <mat-label>Role: </mat-label>
-              <mat-select formControlName="role">
-                <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            
-            
-              <pre></pre>
-            <br>
-  
-            <div class="mat-form-field">
-              <button mat-raised-button color="warm">Register</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <pre></pre>
-      <div style="color: green; font-size: xx-large" *ngIf="isSuccessful">
-        Registered successfully!
-      </div>
-      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignUpFailed">
-        Registration failed!
-      </div>
-      <pre></pre>
-      <p style="color: red; font-size: large">Already have an account?</p>
-      <a routerLink="/authentication" style=" font-size: xx-large">Authenticate</a>
-    </mat-card-content>
-  </mat-card>
-   -->
-
-   <!-- <mat-card class="auth-card">
-    <mat-card-content>
-      <div class="container">
-        <div class="logo">Registration</div>
-        <br>
-        <div class="register-item">
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-register">
-            <mat-form-field appearance="fill" class="mat-form-field">
-              <mat-label>Email:</mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
-  
-            <mat-form-field appearance="fill" class="mat-form-field">
-              <mat-label>Username:</mat-label>
-              <input matInput formControlName="username">
-            </mat-form-field>
-  
-            <mat-form-field appearance="fill" class="mat-form-field">
-              <mat-label>Password:</mat-label>
-              <input matInput formControlName="password" required type="password">
-            </mat-form-field>
-  
-            <mat-form-field appearance="fill" class="mat-form-field">
-              <mat-label>Role:</mat-label>
-              <mat-select formControlName="role">
-                <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
-              </mat-select>
-            </mat-form-field>
-  
-            <div class="mat-form-field">
-              <button mat-icon-button color="primary" class="register-button">
-                <mat-icon>person_add</mat-icon>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-  
-      <div class="success-message" *ngIf="isSuccessful">
-        Registered successfully!
-      </div>
-      <div class="error-message" *ngIf="!isSuccessful && isSignUpFailed">
-        Registration failed!
-      </div>
-  
-      <p class="account-message">Already have an account?</p>
-      <a routerLink="/authentication" class="account-link">Authenticate</a>
-    </mat-card-content>
-  </mat-card> -->
-  <mat-card class="auth-card">
+ <mat-card class="auth-card">
     <mat-card-content>
       <div class="container">
         <div class="register-item">
@@ -138,10 +27,16 @@
             </mat-form-field>
   
             <div class="mat-form-field">
-              <button mat-icon-button color="primary" class="register-button">
+              <button mat-raised-button color="primary" class="register-button">
                 <mat-icon>person_add</mat-icon>
+                <span>Register</span>
               </button>
             </div>
+            <div class="mat-form-field register-button">
+            <button mat-icon-button color="primary">
+              <mat-icon>person_add</mat-icon>
+            </button>
+          </div>
           </form>
         </div>
       </div>

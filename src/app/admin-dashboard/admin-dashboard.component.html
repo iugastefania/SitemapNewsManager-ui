@@ -12,7 +12,9 @@
   <button mat-icon-button color="warn" (click)="deleteUser(user.username)">
     <mat-icon>delete</mat-icon>
   </button>
+  <button mat-icon-button color="primary" (click)="changeUserRole(user.username)">
+    <mat-icon>sync_alt</mat-icon>
+  </button>
 </div>
 
 <button mat-raised-button color="primary" (click)="registerUser()">Create New ADMINISTRATOR account</button>
-

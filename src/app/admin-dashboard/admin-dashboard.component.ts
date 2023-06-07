@@ -50,7 +50,24 @@ export class AdminDashboardComponent implements OnInit {
       );
     }
   }
-
+  
+  changeUserRole(username: string) {
+    if (confirm('Are you sure you want to change the role of this user?')) {
+      const role = prompt('Enter the new role for the user:');
+      if (role) {
+        this.adminService.changeUserRole(username, role).subscribe(
+          response => {
+            console.log('User role changed successfully');
+            // Refresh the user list
+            this.getAllUsers();
+          },
+          error => {
+            console.log('Error changing user role:', error);
+          }
+        );
+      }
+    }
+  }
 
   registerUser() {
     const dialogRef = this.dialog.open(AdminPopupComponent, {

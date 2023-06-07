@@ -64,4 +64,21 @@ export class AdminService {
     return this.http.delete(`${AUTH_API}users/${username}`, httpOptions);
   }
   
+  changeUserRole(username: string, role: string): Observable<any> {
+    const user = this.loggedUser;
+    if (user && user.role === 'ADMINISTRATOR') {
+      const url = `${AUTH_API}users/${username}/role`;
+      return this.http.put(url, { role }, httpOptions).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 400) {
+            return throwError('Access Denied. Only an ADMINISTRATOR can change user roles.');
+          }
+          return throwError('Error changing user role.');
+        })
+      );
+    } else {
+      return throwError('Access Denied. Only an ADMINISTRATOR can change user roles.');
+    }
+  }
+
 }
