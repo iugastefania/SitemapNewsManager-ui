@@ -1,77 +1,3 @@
-/* .main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .container {
-    flex: 1;
-  }
-  
-  .app-footer {
-    margin-top: auto;
-  }
-
-  .toolbar-icon {
-    margin-right: 2px; 
-  }
-  
-  .toolbar-text {
-    margin-left: 2px; 
-  }
-  
-  .menu{
-    margin: auto;
-    align-self: center;
-    font-size: large;
-    text-align: center;
-  
-  }
-  
-  
-  button{
-   background-color: floralwhite;
-    color:green;
-    font-size: xx-large;
-    margin-right: 10px;
-    border: white;
-    border-bottom-width: 10px;
-  }
-  
-  .menuButton{
-    background-color: #ffeac0;
-  
-    font-size: medium;
-  }
-  
-  .menu_right{
-    margin: auto;
-    font-size: large;
-    text-align: right;
-    align-self: self-end;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .logo{
-    margin: auto;
-    font-size: xx-large;
-    text-align: center;
-    image-resolution: inherit;
-    align-self: center;
-    color: darkgreen;
-    margin-top: 10px;
-  
-  }
-  
-  
-  .logo img{
-    height: 100px;
-  
-  }
-  
-   */
-
    .main-container {
     display: flex;
     flex-direction: column;
@@ -95,7 +21,7 @@
   }
   
   .menu_right {
-    margin-left: auto; /* Aligns menu items to the right */
+    margin-left: auto; 
   }
   
   .menu-button {
