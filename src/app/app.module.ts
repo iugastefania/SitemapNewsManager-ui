@@ -36,6 +36,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { RegisterComponent } from './register/register.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminPopupComponent } from './admin-popup/admin-popup.component';
+import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AdminPopupComponent } from './admin-popup/admin-popup.component';
     RegisterComponent,
     AdminDashboardComponent,
     AdminPopupComponent,
+    ChangeRoleDialogComponent,
   ],
   imports: [
     BrowserModule,

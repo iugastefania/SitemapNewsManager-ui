@@ -4,6 +4,7 @@ import { User } from '../models/user.model';
 import { AdminPopupComponent } from "../admin-popup/admin-popup.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ChangeRoleDialogComponent } from "../change-role-dialog/change-role-dialog.component";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,11 +14,15 @@ import { MatDialog } from '@angular/material/dialog';
 export class AdminDashboardComponent implements OnInit {
   users: User[] = [];
   errorMessage: string = '';
+  roles: string[] = ['ADMINISTRATOR', 'EDITOR', 'VIEWER'];
+  selectedRole: string = '';
 
-  constructor(private adminService: AdminService,     
+  constructor(
+    private adminService: AdminService,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog ) { }
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.getAllUsers();
@@ -34,7 +39,6 @@ export class AdminDashboardComponent implements OnInit {
       }
     );
   }
-  
 
   deleteUser(username: string) {
     if (confirm('Are you sure you want to delete this user?')) {
@@ -50,22 +54,34 @@ export class AdminDashboardComponent implements OnInit {
       );
     }
   }
-  
+
   changeUserRole(username: string) {
     if (confirm('Are you sure you want to change the role of this user?')) {
-      const role = prompt('Enter the new role for the user:');
-      if (role) {
-        this.adminService.changeUserRole(username, role).subscribe(
-          response => {
-            console.log('User role changed successfully');
-            // Refresh the user list
-            this.getAllUsers();
-          },
-          error => {
-            console.log('Error changing user role:', error);
-          }
-        );
-      }
+      // Reset the selected role
+      this.selectedRole = '';
+
+      const dialogRef = this.dialog.open(ChangeRoleDialogComponent, {
+        width: '400px',
+        data: {
+          roles: this.roles,
+          selectedRole: this.selectedRole
+        }
+      });
+
+      dialogRef.afterClosed().subscribe((result: string) => {
+        if (result) {
+          this.adminService.changeUserRole(username, result).subscribe(
+            response => {
+              console.log('User role changed successfully');
+              // Refresh the user list
+              this.getAllUsers();
+            },
+            error => {
+              console.log('Error changing user role:', error);
+            }
+          );
+        }
+      });
     }
   }
 
