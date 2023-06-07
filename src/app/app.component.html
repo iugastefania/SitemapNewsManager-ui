@@ -1,7 +1,30 @@
 <div class="main-container">
-  <mat-toolbar color="primary" routerLink="/home">
-    <mat-icon class="toolbar-icon">web</mat-icon>
+  <mat-toolbar color="primary">
+    <mat-icon routerLink="/home" class="toolbar-icon">web</mat-icon>
     <span class="toolbar-text">Sitemap News Manager</span>
+  
+    <span class="spacer"></span> <!-- Add spacer to push menu items to the right -->
+  
+    <div class="menu_right" *ngIf="!loggedUser">
+      <button mat-button routerLink="/authentication" class="menu-button" routerLinkActive="active">
+        <mat-icon class="menu-icon">lock</mat-icon>
+        <span>Authentication</span>
+      </button>
+    </div>
+  
+    <div class="menu_right" *ngIf="loggedUser">
+      <div class="profile-logout-wrapper">
+        <a *ngIf="loggedUser">
+          <mat-icon class="profile-icon">account_circle</mat-icon>
+          <span>{{ loggedUser.username }}</span>
+          <span>({{ loggedUser.role }})</span>
+        </a>        
+        <a mat-button class="logout-button" routerLink="" routerLinkActive="active" (click)="logout()">
+          <mat-icon class="logout-icon">exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
+      </div>
+    </div>
   </mat-toolbar>
 
   <div class="container">
@@ -36,28 +59,6 @@
 
     <div class="content">
       <router-outlet></router-outlet>
-
-      <div class="menu_right" *ngIf="!loggedUser">
-        <button mat-button routerLink="/authentication" class="menu-button" routerLinkActive="active">
-          <mat-icon class="menu-icon">lock</mat-icon>
-          <span>Authentication</span>
-        </button>
-      </div>
-
-      <div class="menu_right" *ngIf="loggedUser">
-        <a routerLink="/profile" routerLinkActive="active" *ngIf="loggedUser" class="profile-link">
-          <mat-icon class="profile-icon">account_circle</mat-icon>
-          <span class="profile-username">{{ loggedUser.username }}</span>
-        </a>
-        <a mat-button class="logout-button" routerLink="" routerLinkActive="active" (click)="logout()">
-          <mat-icon class="logout-icon">exit_to_app</mat-icon>
-          <span>Log out</span>
-        </a>
-      </div>
-      </div>
-  
-      <div class="content">
-        <router-outlet></router-outlet>
     </div>
   </div>
 </div>

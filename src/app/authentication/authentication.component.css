@@ -1,4 +1,4 @@
-mat-card {
+/* mat-card {
     max-width: 600px;
     max-height: 1000px;
     margin:auto;
@@ -31,16 +31,15 @@ mat-card {
   }
   
   
-  /*//FROM HERE ALERT*/
   .alert {
     padding: 20px;
-    background-color: #245e22; /* Red */
+    background-color: #245e22; 
     color: white;
     margin-bottom: 15px;
     width: fit-content;
   }
   
-  /* The close button */
+
   .closebtn {
     margin-left: 15px;
     color: white;
@@ -52,8 +51,187 @@ mat-card {
     transition: 0.3s;
   }
   
-  /* When moving the mouse over the close button */
+
   .closebtn:hover {
     color: black;
   }
+   */
+
+
+   /* .auth-card {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
   
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .login-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: #c62828;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+  } */
+  
+
+  /* .auth-card {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.success-message {
+  color: green;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: #c62828;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.account-message {
+  color: primary;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.account-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: #1976d2;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.account-link:hover {
+  text-decoration: underline;
+} */
+.auth-card {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-button {
+  min-width: 0;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.register-link {
+  margin-top: 10px;
+}
+
+
+
+.mat-form-field {
+  width: 100%;
+}
+
+.success-message {
+  color: green;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: #c62828;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.account-message {
+  color: primary;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.account-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: #1976d2;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.account-link:hover {
+  text-decoration: underline;
+}

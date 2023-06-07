@@ -1,4 +1,4 @@
-mat-card {
+/* mat-card {
     max-width: 600px;
     max-height: 1000px;
     margin:auto;
@@ -27,5 +27,130 @@ mat-card {
   .logo{
     font-size: xx-large;
     color: saddlebrown;
+  }
+   */
+
+   /* .auth-card {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    background-color: #F5F5F5;
+    margin-bottom: 100px;
+    border: 1px solid #E0E0E0;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .register-item {
+    margin-bottom: 20px;
+  }
+  
+  .register-button {
+    min-width: 0;
+    padding: 8px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: #c62828;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .account-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .account-link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #1976d2;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .account-link:hover {
+    text-decoration: underline;
+  } */
+  .auth-card {
+    max-width: 400px;
+    margin: auto;
+    /* margin-top: 100px; */
+    text-align: center;
+    /* background-color: #F5F5F5; */
+    margin-bottom: 100px;
+    border: 1px solid #E0E0E0;
+    padding: 20px;
+    flex-direction: column;
+    display: flex;
+  }
+  /* .auth-card {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .register-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .register-button {
+    min-width: 0;
+    padding: 8px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: #c62828;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .account-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .account-link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #1976d2;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .account-link:hover {
+    text-decoration: underline;
   }
   

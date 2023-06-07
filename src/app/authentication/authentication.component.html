@@ -1,4 +1,4 @@
-<mat-card *ngIf="loggedUser==undefined">
+<!-- <mat-card *ngIf="loggedUser==undefined" class="auth-card">
     <mat-card-content>
       <div class="container">
         <div class="logo">Authentication</div>
@@ -33,10 +33,10 @@
         </div>
       </div>
       <pre></pre>
-      <div style="color: green; font-size: xx-large" *ngIf="isSuccessful">
+      <div *ngIf="isSuccessful">
          Successfully authenticatificated!
       </div>
-      <div style="color: #c62828; font-size: xx-large" *ngIf="!isSuccessful && isSignInFailed">
+      <div *ngIf="!isSuccessful && isSignInFailed">
         Wrong username-ul or password!
       </div>
       <pre></pre>
@@ -45,3 +45,126 @@
     </mat-card-content>
   </mat-card>
   
+
+  
+    -->
+    <!-- <mat-card *ngIf="loggedUser == undefined" class="auth-card">
+      <mat-card-content>
+        <div class="container">
+          <div class="logo">Authentication</div>
+          <pre></pre>
+          <br>
+          <div class="login-item">
+            <form [formGroup]="loginForm" (ngSubmit)=onSubmit() class="form-register">
+    
+              <pre></pre>
+    
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Username:</mat-label>
+                <input matInput formControlName="username">
+              </mat-form-field>
+    
+              <pre></pre>
+    
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Password:</mat-label>
+                <input matInput formControlName="password" required type="password">
+              </mat-form-field>
+              <pre></pre>
+              <br>
+    
+              <div class="mat-form-field">
+                <button mat-raised-button color="primary">
+                  <mat-icon>login</mat-icon>
+                  <span>Login</span>
+                </button>
+              </div>
+    
+            </form>
+    
+          </div>
+        </div>
+        <pre></pre>
+        <div class="success-message" *ngIf="isSuccessful">
+          Successfully authenticated!
+        </div>
+        <div class="error-message" *ngIf="!isSuccessful && isSignInFailed">
+          Wrong username or password!
+        </div>
+        <pre></pre>
+        <p class="account-message">New?</p>
+        <a routerLink="/register" class="account-link">Register</a>
+      </mat-card-content>
+    </mat-card> -->
+<!-- <mat-card *ngIf="loggedUser == undefined" class="auth-card">
+  <mat-card-content>
+    <div class="container">
+      <div class="logo">Authentication</div>
+      <div class="login-item">
+        <form [formGroup]="loginForm" (ngSubmit)=onSubmit() class="form-register">
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Username:</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Password:</mat-label>
+            <input matInput formControlName="password" required type="password">
+          </mat-form-field>
+
+          <div class="mat-form-field login-button">
+            <button mat-raised-button color="primary">
+              <mat-icon>login</mat-icon>
+              <span>Login</span>
+            </button>
+          </div>
+          
+        </form>
+      </div>
+      <div class="success-message" *ngIf="isSuccessful">
+        Successfully authenticated!
+      </div>
+      <div class="error-message" *ngIf="!isSuccessful && isSignInFailed">
+        Wrong username or password!
+      </div>
+      <p class="account-message">New?</p>
+      <a routerLink="/register" class="account-link">Register</a>
+    </div>
+  </mat-card-content>
+</mat-card> -->
+
+<mat-card *ngIf="loggedUser == undefined" class="auth-card">
+  <mat-card-content>
+    <div class="container">
+      <div class="logo">Authentication</div>
+      <div class="login-item">
+        <form [formGroup]="loginForm" (ngSubmit)=onSubmit() class="form-register">
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Username:</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Password:</mat-label>
+            <input matInput formControlName="password" required type="password">
+          </mat-form-field>
+
+          <div class="mat-form-field login-button">
+            <button mat-raised-button color="primary">
+              <mat-icon>login</mat-icon>
+              <span>Login</span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <p class="account-message">New?</p>
+      <a routerLink="/register" class="account-link register-link">Register</a>
+      <div class="success-message" *ngIf="isSuccessful">
+        Successfully authenticated!
+      </div>
+      <div class="error-message" *ngIf="!isSuccessful && isSignInFailed">
+        Wrong username or password!
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,4 +1,4 @@
-.main-container {
+/* .main-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -68,6 +68,62 @@
   .logo img{
     height: 100px;
   
+  }
+  
+   */
+
+   .main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 1;
+  }
+  
+  .app-footer {
+    margin-top: auto;
+  }
+  
+  .toolbar-icon {
+    margin-right: 2px;
+  }
+  
+  .toolbar-text {
+    margin-left: 2px;
+  }
+  
+  .menu_right {
+    margin-left: auto; /* Aligns menu items to the right */
+  }
+  
+  .menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #05794d;
+  }
+  
+  .menu-icon {
+    margin-right: 4px;
+  }
+  
+  .profile-logout-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: xx-large;
+  }
+  
+  .profile-icon {
+    margin-right: 2px;
   }
   
   
