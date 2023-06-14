@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Url } from '../models/url.model';
 import { Sitemap } from '../models/sitemap.model';
+import { UrlRequest } from '../models/url-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,12 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  
   getArticle(loc: string): Observable<Url> {
     return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
   }
 
-  addArticle(article: Url): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/addArticle`, article);
+  addArticle(article: UrlRequest): Observable<Url> {
+    return this.http.post<Url>(`${this.baseUrl}/addArticle`, article);
   }
 
   updateArticle(article: Url): Observable<string> {
@@ -34,8 +34,8 @@ export class ArticleService {
     return this.http.get<Url[]>(`${this.baseUrl}/getAllArticlesByChannel/${channelName}`);
   }
 
-  addArticleToChannel(channelName: string, article: Url): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/addArticleToChannel?channelName=${channelName}`, article);
+  addArticleToChannel(channelName: string, article: UrlRequest): Observable<Url> {
+    return this.http.post<Url>(`${this.baseUrl}/addArticleToChannel?channelName=${channelName}`, article);
   }
 
   updateArticleInChannel(channelName: string, article: Url): Observable<string> {

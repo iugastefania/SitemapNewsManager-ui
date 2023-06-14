@@ -1,3 +1,5 @@
 export class Sitemap {
-    loc!: string;
-  }
+  id!: number;
+  loc!: string;
+  channel!: string;
+}

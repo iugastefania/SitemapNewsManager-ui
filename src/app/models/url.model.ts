@@ -5,4 +5,5 @@ export class Url {
   description!: string;
   thumbnail!: string;
   title!: string;
+  user!: string | undefined
 }

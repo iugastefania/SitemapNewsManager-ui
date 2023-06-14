@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { UrlRequest } from '../models/url-request.model';
 import { NotificationService } from '../services/notification.service';
+import {User} from "../models/user.model";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-article-create',
   templateUrl: './article-create.component.html',
   styleUrls: ['./article-create.component.css']
 })
-export class ArticleCreateComponent {
+export class ArticleCreateComponent implements OnInit  {
   articleForm: FormGroup;
   notificationMessage: string = '';
+  private loggedUser: User | undefined;
 
   constructor(
     private formBuilder: FormBuilder,
     private articleService: ArticleService,
+    private authService:AuthService,
     private notificationService: NotificationService
   ) {
     this.articleForm = this.formBuilder.group({
@@ -28,12 +32,17 @@ export class ArticleCreateComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.loggedUser = this.authService.loggedUser;
+  }
+
   onSubmit(): void {
     if (this.articleForm.invalid) {
       return;
     }
 
-    const newArticle: Url = this.articleForm.value;
+    const newArticle: UrlRequest = this.articleForm.value;
+    newArticle.user = this.loggedUser?.username
 
     this.articleService.addArticle(newArticle).subscribe(
       (response) => {
