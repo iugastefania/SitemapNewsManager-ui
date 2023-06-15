@@ -20,7 +20,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(user: FormGroup): Observable<any> {
+  authentification(user: FormGroup): Observable<any> {
     return this.http.post( AUTH_API + 'authentication', {
       username: user.value.username,
       password: user.value.password

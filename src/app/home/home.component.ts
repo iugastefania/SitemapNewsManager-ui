@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   }
 
   fetchFeaturedArticles() {
-    // Fetch the featured articles here
     this.articleService.getAllArticlesByChannel('featured').subscribe(
       (articles: Url[]) => {
         this.featuredArticles = articles;
@@ -36,7 +35,6 @@ export class HomeComponent implements OnInit {
   }
 
   fetchStatistics() {
-    // Fetch the statistics here
     this.articleService.getAllChannelNames().subscribe(
       (channelNames: string[]) => {
         this.totalChannels = channelNames.length;
@@ -47,7 +45,6 @@ export class HomeComponent implements OnInit {
       }
     );
 
-  // Fetch all the articles
     this.articleService.getAllUrls().subscribe(
       (articles: Url[]) => {
         this.totalArticles = articles.length;

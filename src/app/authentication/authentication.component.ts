@@ -21,13 +21,13 @@ export class AuthenticationComponent implements OnInit {
   constructor(private authService: AuthService, private router:Router) { }
 
 
-  loginForm = new FormGroup({
+  authentificationForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
   async onSubmit(): Promise<any>  {
-    this.authService.login(this.loginForm).subscribe(
+    this.authService.authentification(this.authentificationForm).subscribe(
       data => {
         const user: User = {
           id: data.body.id,
