@@ -5,10 +5,6 @@
     <mat-list-item class="sitemap-item" *ngFor="let sitemap of getCurrentPageSitemaps()">
       <div class="sitemap-link">
         <mat-icon class="sitemap-icon">rss_feed</mat-icon>
-        <div class="sitemap-details">
-          <span class="sitemap-channel">Channel: {{ sitemap.channel }}</span>
-          <span class="sitemap-loc">Link: {{ sitemap.loc }}</span>
-        </div>
         <div>
           <button mat-icon-button class="sitemap-button" (click)="navigateToUrlFromSitemap(sitemap.loc)">
             <mat-icon>arrow_forward</mat-icon>
@@ -16,6 +12,10 @@
           <button mat-icon-button class="sitemap-button" (click)="openSitemapInNewTab(sitemap.loc)">
             <mat-icon>open_in_new</mat-icon>
           </button>
+        </div>
+        <div class="sitemap-details">
+          <span class="sitemap-channel">Channel: {{ sitemap.channel }}</span>
+          <span class="sitemap-loc">Link: {{ sitemap.loc }}</span>
         </div>
       </div>
     </mat-list-item>
