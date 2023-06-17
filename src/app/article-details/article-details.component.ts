@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
-import { UrlEditPopupComponent } from '../url-edit-popup/url-edit-popup.component';
+import { Article } from '../models/article.model';
+import { ArticleEditPopupComponent } from '../article-edit-popup/article-edit-popup.component';
 
 @Component({
-  selector: 'app-url-details',
-  templateUrl: './url-details.component.html',
-  styleUrls: ['./url-details.component.css'],
+  selector: 'app-article-details',
+  templateUrl: './article-details.component.html',
+  styleUrls: ['./article-details.component.css'],
 })
-export class UrlDetailsComponent implements OnInit {
-  article: Url | undefined;
+export class ArticleDetailsComponent implements OnInit {
+  article: Article | undefined;
   formattedDate: string | undefined;
 
   constructor(
@@ -25,12 +25,12 @@ export class UrlDetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const loc = params['id'];
       this.articleService.getArticle(loc).subscribe(
-        (url: Url) => {
-          this.article = url;
+        (article: Article) => {
+          this.article = article;
           this.formatDate();
         },
         (error: any) => {
-          console.error('Failed to fetch URL details:', error);
+          console.error('Failed to fetch article details:', error);
         },
       );
     });
@@ -59,12 +59,12 @@ export class UrlDetailsComponent implements OnInit {
   }
 
   editArticle() {
-    const dialogRef = this.dialog.open(UrlEditPopupComponent, {
+    const dialogRef = this.dialog.open(ArticleEditPopupComponent, {
       width: '600px',
       data: this.article,
     });
 
-    dialogRef.afterClosed().subscribe((result: Url) => {
+    dialogRef.afterClosed().subscribe((result: Article) => {
       if (result) {
         this.article = result;
       }

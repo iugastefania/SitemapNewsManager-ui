@@ -1,42 +1,42 @@
-.urls-from-sitemap {
+.articles-from-sitemap {
     margin: 20px;
   }
   
-  .urls-heading {
+  .articles-heading {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
-  .urls-card {
+  .articles-card {
     margin-bottom: 10px;
   }
   
-  .url-details {
+  .article-details {
     display: flex;
     align-items: center;
   }
   
-  .url-icon {
+  .article-icon {
     margin-right: 10px;
   }
   
-  .url-info {
+  .article-info {
     display: flex;
     flex-direction: column;
   }
   
-  .url-title {
+  .article-title {
     font-weight: bold;
     margin-bottom: 5px;
   }
   
-  .url-description {
+  .article-description {
     font-size: 14px;
     color: #777;
   }
   
-  .url-thumbnail img {
+  .article-thumbnail img {
     max-width: 100%;
     height: auto;
   }

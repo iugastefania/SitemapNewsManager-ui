@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 import { Sitemap } from '../models/sitemap.model';
-import { UrlRequest } from '../models/url-request.model';
+import { ArticleRequest } from '../models/article-request.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,16 +14,16 @@ export class ArticleService {
   constructor(private http: HttpClient) {}
 
   //doar la search
-  getArticle(loc: string): Observable<Url> {
-    return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
+  getArticle(loc: string): Observable<Article> {
+    return this.http.get<Article>(`${this.baseUrl}/getArticle?loc=${loc}`);
   }
 
-  addArticle(article: UrlRequest): Observable<Url> {
-    return this.http.post<Url>(`${this.baseUrl}/addArticle`, article);
+  addArticle(article: ArticleRequest): Observable<Article> {
+    return this.http.post<Article>(`${this.baseUrl}/addArticle`, article);
   }
 
   //doar la search
-  updateArticle(article: Url): Observable<string> {
+  updateArticle(article: Article): Observable<string> {
     return this.http.put<string>(`${this.baseUrl}/updateArticle`, article);
   }
 
@@ -32,8 +32,8 @@ export class ArticleService {
     return this.http.delete<string>(`${this.baseUrl}/deleteArticle?loc=${loc}`);
   }
 
-  getAllArticlesByChannel(channelName: string): Observable<Url[]> {
-    return this.http.get<Url[]>(
+  getAllArticlesByChannel(channelName: string): Observable<Article[]> {
+    return this.http.get<Article[]>(
       `${this.baseUrl}/getAllArticlesByChannel/${channelName}`,
     );
   }
@@ -41,9 +41,9 @@ export class ArticleService {
   //la channel list
   addArticleToChannel(
     channelName: string,
-    article: UrlRequest,
-  ): Observable<Url> {
-    return this.http.post<Url>(
+    article: ArticleRequest,
+  ): Observable<Article> {
+    return this.http.post<Article>(
       `${this.baseUrl}/addArticleToChannel?channelName=${channelName}`,
       article,
     );
@@ -52,7 +52,7 @@ export class ArticleService {
   // la channel list
   updateArticleInChannel(
     channelName: string,
-    article: Url,
+    article: Article,
   ): Observable<string> {
     return this.http.put<string>(
       `${this.baseUrl}/updateArticleInChannel?channelName=${channelName}`,
@@ -78,12 +78,12 @@ export class ArticleService {
     return this.http.get<Sitemap[]>(`${this.baseUrl}/getSitemapNews`);
   }
 
-  getUrlNews(sitemapName: string): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`, { params: { sitemapName } });
+  getUrlNews(sitemapName: string): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseUrl}/getUrlNews`, { params: { sitemapName } });
   }
 
-  getAllUrls(): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.baseUrl}/getAllUrls`);
+  getAllUrls(): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseUrl}/getAllUrls`);
   }
 
   countUrlsByChannel(channelName: string): Observable<number> {

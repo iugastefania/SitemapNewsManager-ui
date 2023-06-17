@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
   }
 
   redirectToURLList(channelName: string) {
-    this.router.navigate(['/url-list'], {
+    this.router.navigate(['/article-list'], {
       queryParams: { channelName: channelName },
     });
   }

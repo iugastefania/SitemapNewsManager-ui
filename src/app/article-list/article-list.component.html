@@ -4,7 +4,7 @@
   <p>No articles found.</p>
 </div>
 
-<div class="url-dashboard" *ngIf="articles.length > 0">
+<div class="article-dashboard" *ngIf="articles.length > 0">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="thumbnail">
       <td mat-cell *matCellDef="let article">
@@ -20,10 +20,10 @@
 
     <ng-container matColumnDef="actions">
       <td mat-cell *matCellDef="let article">
-        <button mat-icon-button color="primary" (click)="viewUrlDetails(article)" *ngIf="isEditorOrAdmin()">
+        <button mat-icon-button color="primary" (click)="viewArticleDetails(article)" *ngIf="isEditorOrAdmin()">
           <mat-icon>article</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="deleteUrl(article)" *ngIf="isEditorOrAdmin()">
+        <button mat-icon-button color="warn" (click)="deleteArticle(article)" *ngIf="isEditorOrAdmin()">
           <mat-icon>delete</mat-icon>
         </button>
         <a [href]="article.loc" target="_blank" mat-icon-button color="primary">
@@ -47,22 +47,22 @@
 
 
 
-<!-- <div class="urls-from-sitemap">
-  <h2 class="urls-heading">URLs from Sitemap</h2>
+<!-- <div class="articles-from-sitemap">
+  <h2 class="articles-heading">Articles from Sitemap</h2>
 
-  <mat-card class="urls-card" *ngFor="let url of urls">
+  <mat-card class="articles-card" *ngFor="let article of articles">
     <mat-card-header>
-      <div class="url-details">
-        <mat-icon class="url-icon">link</mat-icon>
-        <div class="url-info">
-          <span class="url-title">{{ url.title }}</span>
-          <span class="url-description">{{ url.description }}</span>
+      <div class="article-details">
+        <mat-icon class="article-icon">link</mat-icon>
+        <div class="article-info">
+          <span class="article-title">{{ article.title }}</span>
+          <span class="article-description">{{ article.description }}</span>
         </div>
       </div>
     </mat-card-header>
     <mat-card-content>
-      <div class="url-thumbnail">
-        <img [src]="url.thumbnail" alt="Thumbnail">
+      <div class="article-thumbnail">
+        <img [src]="article.thumbnail" alt="Thumbnail">
       </div>
     </mat-card-content>
   </mat-card>

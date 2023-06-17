@@ -51,7 +51,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-url-edit',
@@ -59,7 +59,7 @@ import { Url } from '../models/url.model';
   styleUrls: ['./url-edit.component.css'],
 })
 export class UrlEditComponent implements OnInit {
-  article: Url = new Url();
+  article: Article = new Article();
 
   constructor(
     private route: ActivatedRoute,
@@ -72,7 +72,7 @@ export class UrlEditComponent implements OnInit {
     const loc = this.route.snapshot.params['loc'];
 
     this.articleService.getArticle(loc).subscribe(
-      (url: Url) => {
+      (url: Article) => {
         this.article = url;
       },
       (error: any) => {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-search',
@@ -19,14 +19,14 @@ export class SearchComponent {
     thumbnail: '',
     title: '',
   };
-  searchResults: Url[] = [];
+  searchResults: Article[] = [];
   showNoResultsMessage: boolean = false;
 
   constructor(private articleService: ArticleService) {}
 
   searchArticles() {
     this.articleService.getArticle(this.searchQuery.loc).subscribe(
-      (article: Url) => {
+      (article: Article) => {
         this.searchResults = [article];
         this.showNoResultsMessage = this.searchResults.length === 0;
         console.log('Search Results:', this.searchResults);

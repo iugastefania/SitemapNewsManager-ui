@@ -1,4 +1,4 @@
-export class UrlRequest {
+export class ArticleRequest {
   loc!: string;
   lastmod!: string;
   channelName!: string;

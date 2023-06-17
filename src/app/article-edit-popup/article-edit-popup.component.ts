@@ -1,33 +1,33 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 import { NotificationService } from '../services/notification.service';
 import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-url-edit-popup',
-  templateUrl: './url-edit-popup.component.html',
-  styleUrls: ['./url-edit-popup.component.css'],
+  selector: 'app-article-edit-popup',
+  templateUrl: './article-edit-popup.component.html',
+  styleUrls: ['./article-edit-popup.component.css'],
 })
-export class UrlEditPopupComponent implements OnInit {
-  article: Url = new Url();
+export class ArticleEditPopupComponent implements OnInit {
+  article: Article = new Article();
   cancelClicked: boolean = false;
 
   constructor(
-    private dialogRef: MatDialogRef<UrlEditPopupComponent>,
+    private dialogRef: MatDialogRef<ArticleEditPopupComponent>,
     private articleService: ArticleService,
     private notificationService: NotificationService,
-    @Inject(MAT_DIALOG_DATA) public data: Url,
+    @Inject(MAT_DIALOG_DATA) public data: Article,
   ) {}
 
   ngOnInit() {
     this.articleService.getArticle(this.data.loc).subscribe(
-      (url: Url) => {
-        this.article = url;
+      (article: Article) => {
+        this.article = article;
       },
       (error: any) => {
-        console.error('Failed to fetch URL details:', error);
+        console.error('Failed to fetch article details:', error);
       },
     );
   }
@@ -36,7 +36,7 @@ export class UrlEditPopupComponent implements OnInit {
     this.articleService.updateArticle(this.article).subscribe(
       (response: string) => {
         console.log('API Response:', response);
-        console.log('URL updated successfully:', response);
+        console.log('Article updated successfully:', response);
 
         if (!this.cancelClicked) {
           this.notificationService.showSuccess('Article updated successfully');

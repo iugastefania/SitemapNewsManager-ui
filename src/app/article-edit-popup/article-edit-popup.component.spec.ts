@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrlEditPopupComponent } from './url-edit-popup.component';
+import { ArticleEditPopupComponent } from './article-edit-popup.component';
 
 describe('UrlEditPopupComponent', () => {
-  let component: UrlEditPopupComponent;
-  let fixture: ComponentFixture<UrlEditPopupComponent>;
+  let component: ArticleEditPopupComponent;
+  let fixture: ComponentFixture<ArticleEditPopupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UrlEditPopupComponent],
+      declarations: [ArticleEditPopupComponent],
     });
-    fixture = TestBed.createComponent(UrlEditPopupComponent);
+    fixture = TestBed.createComponent(ArticleEditPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -45,7 +45,6 @@ export class AdminDashboardComponent implements OnInit {
       this.adminService.deleteUser(username).subscribe(
         (response) => {
           console.log('User deleted successfully');
-          // Refresh the user list
           this.getAllUsers();
         },
         (error) => {
@@ -57,7 +56,6 @@ export class AdminDashboardComponent implements OnInit {
 
   changeUserRole(username: string) {
     if (confirm('Are you sure you want to change the role of this user?')) {
-      // Reset the selected role
       this.selectedRole = '';
 
       const dialogRef = this.dialog.open(ChangeRoleDialogComponent, {
@@ -73,7 +71,6 @@ export class AdminDashboardComponent implements OnInit {
           this.adminService.changeUserRole(username, result).subscribe(
             (response) => {
               console.log('User role changed successfully');
-              // Refresh the user list
               this.getAllUsers();
             },
             (error) => {

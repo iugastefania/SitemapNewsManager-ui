@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-article-thumbnail',
@@ -7,5 +7,5 @@ import { Url } from '../models/url.model';
   styleUrls: ['./article-thumbnail.component.css'],
 })
 export class ArticleThumbnailComponent {
-  @Input() article!: Url;
+  @Input() article!: Article;
 }

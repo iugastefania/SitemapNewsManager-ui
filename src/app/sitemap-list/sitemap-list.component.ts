@@ -31,7 +31,7 @@ export class SitemapListComponent implements OnInit {
   }
 
   navigateToUrlFromSitemap(loc: string) {
-    this.router.navigate(['/urlfromsitemap'], { queryParams: { loc: loc } });
+    this.router.navigate(['/articlefromsitemap'], { queryParams: { loc: loc } });
   }
 
   openSitemapInNewTab(url: string) {

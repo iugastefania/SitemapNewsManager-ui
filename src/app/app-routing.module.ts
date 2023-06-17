@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UrlDetailsComponent } from './url-details/url-details.component';
-import { UrlListComponent } from './url-list/url-list.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { ArticleListComponent } from './article-list/article-list.component';
 import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
 import { HomeComponent } from './home/home.component';
 import { UrlEditComponent } from './url-edit/url-edit.component';
@@ -14,18 +14,18 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { authAdminGuard } from './helpers/auth-admin.guard';
 import { authEditorGuard } from './helpers/auth-editor.guard';
 import { authViewerGuard } from './helpers/auth-viewer.guard';
-import { UrlsFromSitemapComponent } from './urls-from-sitemap/urls-from-sitemap.component';
+import { ArticlesFromSitemapComponent } from './articles-from-sitemap/articles-from-sitemap.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'url-details/:id',
-    component: UrlDetailsComponent,
+    path: 'article-details/:id',
+    component: ArticleDetailsComponent,
     canActivate: [authEditorGuard],
   },
   {
-    path: 'url-list',
-    component: UrlListComponent,
+    path: 'article-list',
+    component: ArticleListComponent,
     canActivate: [authViewerGuard],
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   {
-    path: 'url-edit/:id',
+    path: 'article-edit/:id',
     component: UrlEditComponent,
     canActivate: [authEditorGuard],
   },
@@ -62,8 +62,8 @@ const routes: Routes = [
     canActivate: [authAdminGuard],
   },
   {
-    path: 'urlfromsitemap',
-    component: UrlsFromSitemapComponent,
+    path: 'articlefromsitemap',
+    component: ArticlesFromSitemapComponent,
     canActivate: [authViewerGuard],
   },
 ];

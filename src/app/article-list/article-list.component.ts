@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,19 +9,19 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-url-list',
-  templateUrl: './url-list.component.html',
-  styleUrls: ['./url-list.component.css'],
+  selector: 'app-article-list',
+  templateUrl: './article-list.component.html',
+  styleUrls: ['./article-list.component.css'],
 })
-export class UrlListComponent implements OnInit, AfterViewInit {
+export class ArticleListComponent implements OnInit, AfterViewInit {
   channelName: string = '';
-  articles: Url[] = [];
+  articles: Article[] = [];
   pageSize: number = 20;
   currentPage: number = 0;
   totalItems: number = 0;
-  dataSource!: MatTableDataSource<Url>;
+  dataSource!: MatTableDataSource<Article>;
   displayedColumns: string[] = ['thumbnail', 'title', 'actions'];
-  selectedUrl: Url | null = null;
+  selectedArticle: Article | null = null;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -40,9 +40,9 @@ export class UrlListComponent implements OnInit, AfterViewInit {
       }
     });
 
-    const storedUrl = localStorage.getItem('selectedUrl');
-    if (storedUrl) {
-      this.selectedUrl = JSON.parse(storedUrl);
+    const storedArticle = localStorage.getItem('selectedArticle');
+    if (storedArticle) {
+      this.selectedArticle = JSON.parse(storedArticle);
     }
   }
 
@@ -51,31 +51,31 @@ export class UrlListComponent implements OnInit, AfterViewInit {
     this.loadArticles();
   }
 
-  viewUrlDetails(url: Url) {
-    this.selectedUrl = url;
-    localStorage.setItem('selectedUrl', JSON.stringify(url));
-    if (this.selectedUrl === url) {
-      this.router.navigate(['/url-details', url.loc]);
+  viewArticleDetails(article: Article) {
+    this.selectedArticle = article;
+    localStorage.setItem('selectedArticle', JSON.stringify(article));
+    if (this.selectedArticle === article) {
+      this.router.navigate(['/article-details', article.loc]);
     }
   }
 
-  deleteUrl(url: Url) {
+  deleteArticle(article: Article) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: 'Are you sure you want to delete this article?',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        console.log('Delete URL:', url);
+        console.log('Delete Article:', article);
 
-        this.articleService.deleteArticle(url.loc).subscribe(
+        this.articleService.deleteArticle(article.loc).subscribe(
           (response: string) => {
-            console.log('URL deleted successfully:', response);
+            console.log('Article deleted successfully:', response);
             this.loadArticles();
             this.paginator.firstPage();
           },
           (error: any) => {
-            console.error('Failed to delete URL:', error);
+            console.error('Failed to delete Article:', error);
           },
         );
       }
@@ -86,7 +86,7 @@ export class UrlListComponent implements OnInit, AfterViewInit {
     this.currentPage = 0;
     const startIndex = this.currentPage * this.pageSize;
     this.articleService.getAllArticlesByChannel(this.channelName).subscribe(
-      (articles: Url[]) => {
+      (articles: Article[]) => {
         this.articles = articles;
         this.totalItems = this.articles.length;
         this.dataSource = new MatTableDataSource(

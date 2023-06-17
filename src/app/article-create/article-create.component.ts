@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArticleService } from '../services/article.service';
-import { UrlRequest } from '../models/url-request.model';
+import { ArticleRequest } from '../models/article-request.model';
 import { NotificationService } from '../services/notification.service';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
@@ -41,7 +41,7 @@ export class ArticleCreateComponent implements OnInit {
       return;
     }
 
-    const newArticle: UrlRequest = this.articleForm.value;
+    const newArticle: ArticleRequest = this.articleForm.value;
     newArticle.user = this.loggedUser?.username;
 
     this.articleService.addArticle(newArticle).subscribe(

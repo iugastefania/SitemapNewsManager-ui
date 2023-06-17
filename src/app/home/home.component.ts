@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 import { Sitemap } from '../models/sitemap.model';
 
 @Component({
@@ -9,7 +9,7 @@ import { Sitemap } from '../models/sitemap.model';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  featuredArticles: Url[] = [];
+  featuredArticles: Article[] = [];
   totalArticles: number = 0;
   totalChannels: number = 0;
   totalSitemaps: number = 0;
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   fetchFeaturedArticles() {
     this.articleService.getAllArticlesByChannel('featured').subscribe(
-      (articles: Url[]) => {
+      (articles: Article[]) => {
         this.featuredArticles = articles;
         console.log('Featured Articles:', this.featuredArticles);
       },
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     );
 
     this.articleService.getAllUrls().subscribe(
-      (articles: Url[]) => {
+      (articles: Article[]) => {
         this.totalArticles = articles.length;
         console.log('Total Articles:', this.totalArticles);
       },

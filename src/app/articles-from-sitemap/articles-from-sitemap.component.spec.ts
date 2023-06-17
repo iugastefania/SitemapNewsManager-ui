@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrlsFromSitemapComponent } from './urls-from-sitemap.component';
+import { ArticlesFromSitemapComponent } from './articles-from-sitemap.component';
 
 describe('UrlsFromSitemapComponent', () => {
-  let component: UrlsFromSitemapComponent;
-  let fixture: ComponentFixture<UrlsFromSitemapComponent>;
+  let component: ArticlesFromSitemapComponent;
+  let fixture: ComponentFixture<ArticlesFromSitemapComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UrlsFromSitemapComponent]
+      declarations: [ArticlesFromSitemapComponent]
     });
-    fixture = TestBed.createComponent(UrlsFromSitemapComponent);
+    fixture = TestBed.createComponent(ArticlesFromSitemapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

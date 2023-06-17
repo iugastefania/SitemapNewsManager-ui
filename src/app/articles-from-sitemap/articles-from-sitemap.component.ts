@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 
 @Component({
-  selector: 'app-urls-from-sitemap',
-  templateUrl: './urls-from-sitemap.component.html',
-  styleUrls: ['./urls-from-sitemap.component.css']
+  selector: 'app-articles-from-sitemap',
+  templateUrl: './articles-from-sitemap.component.html',
+  styleUrls: ['./articles-from-sitemap.component.css']
 })
-export class UrlsFromSitemapComponent implements OnInit {
-  urls: Url[] = [];
+export class ArticlesFromSitemapComponent implements OnInit {
+  articles: Article[] = [];
   pageSize: number = 20;
   currentPage: number = 0;
 
@@ -22,15 +22,15 @@ export class UrlsFromSitemapComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const loc = params['loc'];
       if (loc) {
-        this.fetchUrlsFromSitemap(loc);
+        this.fetchArticlesFromSitemap(loc);
       }
     });
   }
 
-  fetchUrlsFromSitemap(sitemapName: string) {
+  fetchArticlesFromSitemap(sitemapName: string) {
     this.articleService.getUrlNews(sitemapName).subscribe(
-      (urls: Url[]) => {
-        this.urls = urls;
+      (articles: Article[]) => {
+        this.articles = articles;
       },
       (error: any) => {
         console.error(error);
@@ -42,9 +42,9 @@ export class UrlsFromSitemapComponent implements OnInit {
     window.open(url, '_blank');
   }
 
-  getCurrentPageUrls(): Url[] {
+  getCurrentPageArticles(): Article[] {
     const startIndex = this.currentPage * this.pageSize;
-    return this.urls.slice(startIndex, startIndex + this.pageSize);
+    return this.articles.slice(startIndex, startIndex + this.pageSize);
   }
 
   onPageChange(pageIndex: number) {
