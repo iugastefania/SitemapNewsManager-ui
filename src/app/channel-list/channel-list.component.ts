@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-channel-list',
   templateUrl: './channel-list.component.html',
-  styleUrls: ['./channel-list.component.css']
+  styleUrls: ['./channel-list.component.css'],
 })
 export class ChannelListComponent implements OnInit {
   channelNames: string[] = [];
@@ -24,11 +24,13 @@ export class ChannelListComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
   }
 
   onChannelButtonClick(channelName: string) {
-    this.router.navigate(['/url-list'], { queryParams: { channelName: channelName } });
+    this.router.navigate(['/url-list'], {
+      queryParams: { channelName: channelName },
+    });
   }
 }

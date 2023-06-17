@@ -3,11 +3,10 @@ import { ArticleService } from '../services/article.service';
 import { Url } from '../models/url.model';
 import { Sitemap } from '../models/sitemap.model';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   featuredArticles: Url[] = [];
@@ -15,7 +14,7 @@ export class HomeComponent implements OnInit {
   totalChannels: number = 0;
   totalSitemaps: number = 0;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
     this.fetchFeaturedArticles();
@@ -30,7 +29,7 @@ export class HomeComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
   }
 
@@ -42,7 +41,7 @@ export class HomeComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
 
     this.articleService.getAllUrls().subscribe(
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
 
     this.articleService.getSitemapNews().subscribe(
@@ -62,8 +61,7 @@ export class HomeComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
-    
   }
 }

@@ -8,7 +8,7 @@ describe('ChannelListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChannelListComponent]
+      declarations: [ChannelListComponent],
     });
     fixture = TestBed.createComponent(ChannelListComponent);
     component = fixture.componentInstance;

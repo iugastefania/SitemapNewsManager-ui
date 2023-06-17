@@ -8,7 +8,7 @@ describe('ArticleThumbnailComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ArticleThumbnailComponent]
+      declarations: [ArticleThumbnailComponent],
     });
     fixture = TestBed.createComponent(ArticleThumbnailComponent);
     component = fixture.componentInstance;

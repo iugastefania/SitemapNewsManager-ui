@@ -8,7 +8,7 @@ import { UrlEditPopupComponent } from '../url-edit-popup/url-edit-popup.componen
 @Component({
   selector: 'app-url-details',
   templateUrl: './url-details.component.html',
-  styleUrls: ['./url-details.component.css']
+  styleUrls: ['./url-details.component.css'],
 })
 export class UrlDetailsComponent implements OnInit {
   article: Url | undefined;
@@ -18,11 +18,11 @@ export class UrlDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private router: Router,
-    private dialog: MatDialog 
-  ) { }
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const loc = params['id'];
       this.articleService.getArticle(loc).subscribe(
         (url: Url) => {
@@ -31,7 +31,7 @@ export class UrlDetailsComponent implements OnInit {
         },
         (error: any) => {
           console.error('Failed to fetch URL details:', error);
-        }
+        },
       );
     });
   }
@@ -50,7 +50,7 @@ export class UrlDetailsComponent implements OnInit {
           hour: 'numeric',
           minute: 'numeric',
           second: 'numeric',
-          hour12: true
+          hour12: true,
         };
 
         this.formattedDate = date.toLocaleString('en-US', options);
@@ -61,7 +61,7 @@ export class UrlDetailsComponent implements OnInit {
   editArticle() {
     const dialogRef = this.dialog.open(UrlEditPopupComponent, {
       width: '600px',
-      data: this.article
+      data: this.article,
     });
 
     dialogRef.afterClosed().subscribe((result: Url) => {

@@ -11,29 +11,35 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-url-list',
   templateUrl: './url-list.component.html',
-  styleUrls: ['./url-list.component.css']
+  styleUrls: ['./url-list.component.css'],
 })
 export class UrlListComponent implements OnInit, AfterViewInit {
-  channelName: string = ''; 
+  channelName: string = '';
   articles: Url[] = [];
-  pageSize: number = 20; 
-  currentPage: number = 0; 
-  totalItems: number = 0; 
+  pageSize: number = 20;
+  currentPage: number = 0;
+  totalItems: number = 0;
   dataSource!: MatTableDataSource<Url>;
   displayedColumns: string[] = ['thumbnail', 'title', 'actions'];
-  selectedUrl: Url | null = null; 
+  selectedUrl: Url | null = null;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router: Router, private route: ActivatedRoute, private articleService: ArticleService, private dialog: MatDialog, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private articleService: ArticleService,
+    private dialog: MatDialog,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       if (params['channelName']) {
         this.channelName = params['channelName'];
         this.loadArticles();
       }
     });
-    
+
     const storedUrl = localStorage.getItem('selectedUrl');
     if (storedUrl) {
       this.selectedUrl = JSON.parse(storedUrl);
@@ -43,7 +49,7 @@ export class UrlListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.loadArticles();
-  }  
+  }
 
   viewUrlDetails(url: Url) {
     this.selectedUrl = url;
@@ -55,53 +61,55 @@ export class UrlListComponent implements OnInit, AfterViewInit {
 
   deleteUrl(url: Url) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: 'Are you sure you want to delete this article?'
+      data: 'Are you sure you want to delete this article?',
     });
-  
-    dialogRef.afterClosed().subscribe(result => {
+
+    dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
         console.log('Delete URL:', url);
-  
+
         this.articleService.deleteArticle(url.loc).subscribe(
           (response: string) => {
             console.log('URL deleted successfully:', response);
             this.loadArticles();
-            this.paginator.firstPage(); 
+            this.paginator.firstPage();
           },
           (error: any) => {
             console.error('Failed to delete URL:', error);
-          }
+          },
         );
       }
     });
   }
 
-
   loadArticles() {
-    this.currentPage = 0; 
+    this.currentPage = 0;
     const startIndex = this.currentPage * this.pageSize;
     this.articleService.getAllArticlesByChannel(this.channelName).subscribe(
       (articles: Url[]) => {
         this.articles = articles;
         this.totalItems = this.articles.length;
-        this.dataSource = new MatTableDataSource(this.articles.slice(startIndex, startIndex + this.pageSize));
+        this.dataSource = new MatTableDataSource(
+          this.articles.slice(startIndex, startIndex + this.pageSize),
+        );
       },
       (error: any) => {
         console.error('Failed to load articles:', error);
-      }
+      },
     );
   }
-  
 
   handlePageChange(event: any) {
     this.currentPage = event.pageIndex;
     const startIndex = this.currentPage * this.pageSize;
-    this.dataSource.data = this.articles.slice(startIndex, startIndex + this.pageSize);
+    this.dataSource.data = this.articles.slice(
+      startIndex,
+      startIndex + this.pageSize,
+    );
   }
 
   isEditorOrAdmin(): boolean {
     const role = this.authService.loggedUser?.role;
     return role === 'ADMINISTRATOR' || role === 'EDITOR';
   }
-  
 }

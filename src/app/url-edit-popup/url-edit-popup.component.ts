@@ -8,7 +8,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 @Component({
   selector: 'app-url-edit-popup',
   templateUrl: './url-edit-popup.component.html',
-  styleUrls: ['./url-edit-popup.component.css']
+  styleUrls: ['./url-edit-popup.component.css'],
 })
 export class UrlEditPopupComponent implements OnInit {
   article: Url = new Url();
@@ -18,7 +18,7 @@ export class UrlEditPopupComponent implements OnInit {
     private dialogRef: MatDialogRef<UrlEditPopupComponent>,
     private articleService: ArticleService,
     private notificationService: NotificationService,
-    @Inject(MAT_DIALOG_DATA) public data: Url
+    @Inject(MAT_DIALOG_DATA) public data: Url,
   ) {}
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class UrlEditPopupComponent implements OnInit {
       },
       (error: any) => {
         console.error('Failed to fetch URL details:', error);
-      }
+      },
     );
   }
 
@@ -47,7 +47,7 @@ export class UrlEditPopupComponent implements OnInit {
       (error: any) => {
         console.error('Failed to update article:', error);
         this.notificationService.showError('Failed to update article');
-      }
+      },
     );
   }
 

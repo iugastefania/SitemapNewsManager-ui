@@ -8,7 +8,7 @@ describe('UrlEditPopupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UrlEditPopupComponent]
+      declarations: [UrlEditPopupComponent],
     });
     fixture = TestBed.createComponent(UrlEditPopupComponent);
     component = fixture.componentInstance;

@@ -3,7 +3,6 @@
 // import { ArticleService } from '../article.service';
 // import { Url } from '../models/url.model';
 
-
 // @Component({
 //   selector: 'app-url-edit',
 //   templateUrl: './url-edit.component.html',
@@ -57,16 +56,16 @@ import { Url } from '../models/url.model';
 @Component({
   selector: 'app-url-edit',
   templateUrl: './url-edit.component.html',
-  styleUrls: ['./url-edit.component.css']
+  styleUrls: ['./url-edit.component.css'],
 })
 export class UrlEditComponent implements OnInit {
-  article: Url = new Url(); 
+  article: Url = new Url();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private articleService: ArticleService,
-    private dialogRef: MatDialogRef<UrlEditComponent>
+    private dialogRef: MatDialogRef<UrlEditComponent>,
   ) {}
 
   ngOnInit() {
@@ -78,7 +77,7 @@ export class UrlEditComponent implements OnInit {
       },
       (error: any) => {
         console.error('Failed to fetch URL details:', error);
-      }
+      },
     );
   }
 
@@ -90,7 +89,7 @@ export class UrlEditComponent implements OnInit {
       },
       (error: any) => {
         console.error('Failed to update URL:', error);
-      }
+      },
     );
   }
 }

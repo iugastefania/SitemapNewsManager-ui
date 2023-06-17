@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   channelNames: string[] = [];
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
   }
 
@@ -38,23 +38,25 @@ export class DashboardComponent implements OnInit {
         },
         (error: any) => {
           console.error(error);
-        }
+        },
       );
-  
+
       this.articleService.latestArticleByChannel(channelName).subscribe(
         (response: any) => {
-          const lastUpdatedDate: string = response.lastUpdatedDate; 
+          const lastUpdatedDate: string = response.lastUpdatedDate;
           this.lastUpdatedDates[channelName] = lastUpdatedDate;
         },
         (error: any) => {
           console.error(error);
-        }
+        },
       );
     });
   }
 
   redirectToURLList(channelName: string) {
-    this.router.navigate(['/url-list'], { queryParams: { channelName: channelName } });
+    this.router.navigate(['/url-list'], {
+      queryParams: { channelName: channelName },
+    });
   }
 
   getArticleCount(channelName: string): number {
@@ -65,14 +67,14 @@ export class DashboardComponent implements OnInit {
     const dateString = this.lastUpdatedDates[channelName];
     return this.formatDate(dateString);
   }
-  
+
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-  
+
     if (isNaN(date.getTime())) {
       return dateString;
     }
-  
+
     const options: Intl.DateTimeFormatOptions = {
       day: 'numeric',
       month: 'long',
@@ -82,9 +84,7 @@ export class DashboardComponent implements OnInit {
       // second: 'numeric',
       // hour12: true
     };
-  
+
     return date.toLocaleString('en-US', options);
   }
-  
 }
-

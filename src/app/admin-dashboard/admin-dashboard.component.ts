@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
 import { User } from '../models/user.model';
-import { AdminPopupComponent } from "../admin-popup/admin-popup.component";
+import { AdminPopupComponent } from '../admin-popup/admin-popup.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ChangeRoleDialogComponent } from "../change-role-dialog/change-role-dialog.component";
+import { ChangeRoleDialogComponent } from '../change-role-dialog/change-role-dialog.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashboardComponent implements OnInit {
   users: User[] = [];
@@ -21,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -30,27 +30,27 @@ export class AdminDashboardComponent implements OnInit {
 
   getAllUsers() {
     this.adminService.getAllUsers().subscribe(
-      users => {
+      (users) => {
         this.users = users;
       },
-      error => {
+      (error) => {
         this.errorMessage = error;
         console.log('Error retrieving users:', error);
-      }
+      },
     );
   }
 
   deleteUser(username: string) {
     if (confirm('Are you sure you want to delete this user?')) {
       this.adminService.deleteUser(username).subscribe(
-        response => {
+        (response) => {
           console.log('User deleted successfully');
           // Refresh the user list
           this.getAllUsers();
         },
-        error => {
+        (error) => {
           console.log('Error deleting user:', error);
-        }
+        },
       );
     }
   }
@@ -64,21 +64,21 @@ export class AdminDashboardComponent implements OnInit {
         width: '400px',
         data: {
           roles: this.roles,
-          selectedRole: this.selectedRole
-        }
+          selectedRole: this.selectedRole,
+        },
       });
 
       dialogRef.afterClosed().subscribe((result: string) => {
         if (result) {
           this.adminService.changeUserRole(username, result).subscribe(
-            response => {
+            (response) => {
               console.log('User role changed successfully');
               // Refresh the user list
               this.getAllUsers();
             },
-            error => {
+            (error) => {
               console.log('Error changing user role:', error);
-            }
+            },
           );
         }
       });

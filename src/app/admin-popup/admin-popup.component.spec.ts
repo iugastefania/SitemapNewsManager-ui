@@ -8,7 +8,7 @@ describe('AdminPopupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminPopupComponent]
+      declarations: [AdminPopupComponent],
     });
     fixture = TestBed.createComponent(AdminPopupComponent);
     component = fixture.componentInstance;

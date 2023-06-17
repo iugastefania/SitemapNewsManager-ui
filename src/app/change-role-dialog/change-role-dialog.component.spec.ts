@@ -8,7 +8,7 @@ describe('ChangeRoleDialogComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChangeRoleDialogComponent]
+      declarations: [ChangeRoleDialogComponent],
     });
     fixture = TestBed.createComponent(ChangeRoleDialogComponent);
     component = fixture.componentInstance;

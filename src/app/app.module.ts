@@ -66,7 +66,7 @@ import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dial
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatCardModule,
     MatButtonModule,
     BrowserAnimationsModule,
@@ -74,7 +74,7 @@ import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dial
     MatListModule,
     MatTableModule,
     MatInputModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatIconModule,
     ReactiveFormsModule,
     MatPaginatorModule,
@@ -85,6 +85,6 @@ import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dial
     MatNativeDateModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

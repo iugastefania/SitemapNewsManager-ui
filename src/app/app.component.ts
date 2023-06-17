@@ -1,33 +1,31 @@
 import { Component } from '@angular/core';
-import {AuthService} from "./services/auth.service";
-import {User} from "./models/user.model";
+import { AuthService } from './services/auth.service';
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   title = 'sitemap-news-manager-ui';
   isLoggedIn: any;
   loggedUser: User | undefined;
 
-  constructor(private authService:AuthService) {
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    if( localStorage.getItem("loggedUser") != null)
-      this.loggedUser=this.authService.loggedUser;
+    if (localStorage.getItem('loggedUser') != null)
+      this.loggedUser = this.authService.loggedUser;
   }
-  ngOnChange(){
-    if( localStorage.getItem("loggedUser") != null)
-      this.loggedUser=this.authService.loggedUser;
+  ngOnChange() {
+    if (localStorage.getItem('loggedUser') != null)
+      this.loggedUser = this.authService.loggedUser;
   }
 
   logout() {
-    localStorage.removeItem('loggedUser')
-    this.loggedUser=undefined;
+    localStorage.removeItem('loggedUser');
+    this.loggedUser = undefined;
   }
 
   isAdmin(): boolean {
@@ -44,5 +42,4 @@ export class AppComponent {
     const role = this.authService.loggedUser?.role;
     return role === 'VIEWER' || role === 'ADMINISTRATOR' || role === 'EDITOR';
   }
-
 }

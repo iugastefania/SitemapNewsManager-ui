@@ -6,13 +6,12 @@ import { Sitemap } from '../models/sitemap.model';
 import { UrlRequest } from '../models/url-request.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
-  
   private baseUrl = 'http://localhost:8080/api/app';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getArticle(loc: string): Observable<Url> {
     return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
@@ -31,19 +30,38 @@ export class ArticleService {
   }
 
   getAllArticlesByChannel(channelName: string): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.baseUrl}/getAllArticlesByChannel/${channelName}`);
+    return this.http.get<Url[]>(
+      `${this.baseUrl}/getAllArticlesByChannel/${channelName}`,
+    );
   }
 
-  addArticleToChannel(channelName: string, article: UrlRequest): Observable<Url> {
-    return this.http.post<Url>(`${this.baseUrl}/addArticleToChannel?channelName=${channelName}`, article);
+  addArticleToChannel(
+    channelName: string,
+    article: UrlRequest,
+  ): Observable<Url> {
+    return this.http.post<Url>(
+      `${this.baseUrl}/addArticleToChannel?channelName=${channelName}`,
+      article,
+    );
   }
 
-  updateArticleInChannel(channelName: string, article: Url): Observable<string> {
-    return this.http.put<string>(`${this.baseUrl}/updateArticleInChannel?channelName=${channelName}`, article);
+  updateArticleInChannel(
+    channelName: string,
+    article: Url,
+  ): Observable<string> {
+    return this.http.put<string>(
+      `${this.baseUrl}/updateArticleInChannel?channelName=${channelName}`,
+      article,
+    );
   }
 
-  deleteArticleFromChannel(channelName: string, loc: string): Observable<string> {
-    return this.http.delete<string>(`${this.baseUrl}/deleteArticleFromChannel?channelName=${channelName}&loc=${loc}`);
+  deleteArticleFromChannel(
+    channelName: string,
+    loc: string,
+  ): Observable<string> {
+    return this.http.delete<string>(
+      `${this.baseUrl}/deleteArticleFromChannel?channelName=${channelName}&loc=${loc}`,
+    );
   }
 
   getAllChannelNames(): Observable<string[]> {
@@ -63,14 +81,21 @@ export class ArticleService {
   }
 
   countUrlsByChannel(channelName: string): Observable<number> {
-    return this.http.get<number>(`${this.baseUrl}/countUrlsByChannel?channelName=${channelName}`);
+    return this.http.get<number>(
+      `${this.baseUrl}/countUrlsByChannel?channelName=${channelName}`,
+    );
   }
 
   latestArticleByChannel(channelName: string): Observable<Map<string, string>> {
-    return this.http.get<Map<string, string>>(`${this.baseUrl}/latestArticleByChannel?channelName=${channelName}`);
+    return this.http.get<Map<string, string>>(
+      `${this.baseUrl}/latestArticleByChannel?channelName=${channelName}`,
+    );
   }
 
   triggerSitemapNewsMapping(): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/triggerSitemapNewsMapping`, {});
+    return this.http.post<string>(
+      `${this.baseUrl}/triggerSitemapNewsMapping`,
+      {},
+    );
   }
 }
