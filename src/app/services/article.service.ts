@@ -13,6 +13,7 @@ export class ArticleService {
 
   constructor(private http: HttpClient) {}
 
+  //doar la search
   getArticle(loc: string): Observable<Url> {
     return this.http.get<Url>(`${this.baseUrl}/getArticle?loc=${loc}`);
   }
@@ -21,10 +22,12 @@ export class ArticleService {
     return this.http.post<Url>(`${this.baseUrl}/addArticle`, article);
   }
 
+  //doar la search
   updateArticle(article: Url): Observable<string> {
     return this.http.put<string>(`${this.baseUrl}/updateArticle`, article);
   }
 
+  //doar la search
   deleteArticle(loc: string): Observable<string> {
     return this.http.delete<string>(`${this.baseUrl}/deleteArticle?loc=${loc}`);
   }
@@ -35,6 +38,7 @@ export class ArticleService {
     );
   }
 
+  //la channel list
   addArticleToChannel(
     channelName: string,
     article: UrlRequest,
@@ -45,6 +49,7 @@ export class ArticleService {
     );
   }
 
+  // la channel list
   updateArticleInChannel(
     channelName: string,
     article: Url,
@@ -55,6 +60,7 @@ export class ArticleService {
     );
   }
 
+  // la channel list
   deleteArticleFromChannel(
     channelName: string,
     loc: string,
@@ -72,8 +78,17 @@ export class ArticleService {
     return this.http.get<Sitemap[]>(`${this.baseUrl}/getSitemapNews`);
   }
 
-  getUrlNews(): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`);
+  //folosind un sitemap ceva cred in channel list care no sa mai fie channel list
+  // getUrlNews(): Observable<Url[]> {
+  //   return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`);
+  // }
+
+  // getUrlNews(sitemapName: string): Observable<Url[]> {
+  //   return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews/${sitemapName}`);
+  // }  
+
+  getUrlNews(sitemapName: string): Observable<Url[]> {
+    return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`, { params: { sitemapName } });
   }
 
   getAllUrls(): Observable<Url[]> {

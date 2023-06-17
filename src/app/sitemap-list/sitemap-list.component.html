@@ -1,0 +1,51 @@
+<!-- <div class="sitemap-list">
+  <h2 class="sitemap-heading">Sitemaps</h2>
+
+  <mat-list class="sitemap-items">
+    <mat-list-item class="sitemap-item" *ngFor="let sitemap of channelSitemaps">
+      <a class="sitemap-link" [href]="sitemap.loc" target="_blank">
+        <mat-icon class="sitemap-icon">rss_feed</mat-icon>
+        <div class="sitemap-details">
+          <span class="sitemap-channel">{{ sitemap.channel }}</span>
+          <span class="sitemap-loc">{{ sitemap.loc }}</span>
+        </div>
+      </a>
+    </mat-list-item>
+  </mat-list>
+</div> -->
+<!-- <div class="sitemap-list">
+  <h2 class="sitemap-heading">Sitemaps</h2>
+
+  <mat-list class="sitemap-items">
+    <mat-list-item class="sitemap-item" *ngFor="let sitemap of channelSitemaps">
+      <a class="sitemap-link" [href]="sitemap.loc" target="_blank">
+        <mat-icon class="sitemap-icon">rss_feed</mat-icon>
+        <div class="sitemap-details">
+          <span class="sitemap-channel">{{ sitemap.channel }}</span>
+          <span class="sitemap-loc">{{ sitemap.loc }}</span>
+        </div>
+      </a>
+      <button mat-icon-button class="sitemap-button" (click)="navigateToUrlFromSitemap(sitemap.loc)">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div> -->
+<div class="sitemap-list">
+  <h2 class="sitemap-heading">Sitemaps</h2>
+
+  <mat-list class="sitemap-items">
+    <mat-list-item class="sitemap-item" *ngFor="let sitemap of channelSitemaps">
+      <div class="sitemap-link">
+        <mat-icon class="sitemap-icon">rss_feed</mat-icon>
+        <div class="sitemap-details">
+          <span class="sitemap-channel">{{ sitemap.channel }}</span>
+          <span class="sitemap-loc">{{ sitemap.loc }}</span>
+        </div>
+        <button mat-icon-button class="sitemap-button" (click)="navigateToUrlFromSitemap(sitemap.loc)">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

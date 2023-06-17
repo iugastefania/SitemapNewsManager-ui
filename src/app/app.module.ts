@@ -24,7 +24,7 @@ import { AppComponent } from './app.component';
 import { UrlListComponent } from './url-list/url-list.component';
 import { UrlDetailsComponent } from './url-details/url-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ChannelListComponent } from './channel-list/channel-list.component';
+import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import { HomeComponent } from './home/home.component';
 import { UrlEditComponent } from './url-edit/url-edit.component';
@@ -39,13 +39,14 @@ import { RegisterComponent } from './register/register.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminPopupComponent } from './admin-popup/admin-popup.component';
 import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dialog.component';
+import { UrlsFromSitemapComponent } from './urls-from-sitemap/urls-from-sitemap.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UrlListComponent,
     UrlDetailsComponent,
-    ChannelListComponent,
+    SitemapListComponent,
     ArticleThumbnailComponent,
     HomeComponent,
     UrlEditComponent,
@@ -60,6 +61,7 @@ import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dial
     AdminDashboardComponent,
     AdminPopupComponent,
     ChangeRoleDialogComponent,
+    UrlsFromSitemapComponent,
   ],
   imports: [
     BrowserModule,
