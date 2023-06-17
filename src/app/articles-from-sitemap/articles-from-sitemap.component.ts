@@ -6,7 +6,7 @@ import { Article } from '../models/article.model';
 @Component({
   selector: 'app-articles-from-sitemap',
   templateUrl: './articles-from-sitemap.component.html',
-  styleUrls: ['./articles-from-sitemap.component.css']
+  styleUrls: ['./articles-from-sitemap.component.css'],
 })
 export class ArticlesFromSitemapComponent implements OnInit {
   articles: Article[] = [];
@@ -15,11 +15,11 @@ export class ArticlesFromSitemapComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticleService
+    private articleService: ArticleService,
   ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       const loc = params['loc'];
       if (loc) {
         this.fetchArticlesFromSitemap(loc);
@@ -34,7 +34,7 @@ export class ArticlesFromSitemapComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
   }
 

@@ -2,13 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArticlesFromSitemapComponent } from './articles-from-sitemap.component';
 
-describe('UrlsFromSitemapComponent', () => {
+describe('ArticlesFromSitemapComponent', () => {
   let component: ArticlesFromSitemapComponent;
   let fixture: ComponentFixture<ArticlesFromSitemapComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ArticlesFromSitemapComponent]
+      declarations: [ArticlesFromSitemapComponent],
     });
     fixture = TestBed.createComponent(ArticlesFromSitemapComponent);
     component = fixture.componentInstance;

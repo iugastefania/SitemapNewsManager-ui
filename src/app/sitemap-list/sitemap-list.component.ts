@@ -26,12 +26,14 @@ export class SitemapListComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
-      }
+      },
     );
   }
 
   navigateToUrlFromSitemap(loc: string) {
-    this.router.navigate(['/articlefromsitemap'], { queryParams: { loc: loc } });
+    this.router.navigate(['/articlefromsitemap'], {
+      queryParams: { loc: loc },
+    });
   }
 
   openSitemapInNewTab(url: string) {

@@ -79,7 +79,9 @@ export class ArticleService {
   }
 
   getUrlNews(sitemapName: string): Observable<Article[]> {
-    return this.http.get<Article[]>(`${this.baseUrl}/getUrlNews`, { params: { sitemapName } });
+    return this.http.get<Article[]>(`${this.baseUrl}/getUrlNews`, {
+      params: { sitemapName },
+    });
   }
 
   getAllUrls(): Observable<Article[]> {

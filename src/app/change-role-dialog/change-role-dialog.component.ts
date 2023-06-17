@@ -5,7 +5,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   selector: 'app-change-role-dialog',
   templateUrl: 'change-role-dialog.component.html',
 })
-
 export class ChangeRoleDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ChangeRoleDialogComponent>,
