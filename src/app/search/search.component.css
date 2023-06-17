@@ -4,19 +4,22 @@
     justify-content: center;
     margin-bottom: 20px;
   }
-  
+
   .search-input {
+    display: flex;
+    align-items: center;
     width: 300px;
     margin-right: 10px;
   }
-  
+
   .search-button {
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
+    margin-top: -20px; 
   }
-  
+
   .search-button .mat-icon {
     font-size: 24px;
     color: #2196f3;
@@ -59,5 +62,18 @@
   .no-results p,
   .no-search p {
     font-style: italic;
+  }
+  
+  .link-button {
+    margin-top: 10px; 
+  }
+  
+  .search-result-card {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   

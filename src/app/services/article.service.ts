@@ -78,15 +78,6 @@ export class ArticleService {
     return this.http.get<Sitemap[]>(`${this.baseUrl}/getSitemapNews`);
   }
 
-  //folosind un sitemap ceva cred in channel list care no sa mai fie channel list
-  // getUrlNews(): Observable<Url[]> {
-  //   return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`);
-  // }
-
-  // getUrlNews(sitemapName: string): Observable<Url[]> {
-  //   return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews/${sitemapName}`);
-  // }  
-
   getUrlNews(sitemapName: string): Observable<Url[]> {
     return this.http.get<Url[]>(`${this.baseUrl}/getUrlNews`, { params: { sitemapName } });
   }

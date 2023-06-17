@@ -58,4 +58,8 @@ export class SearchComponent {
 
     return date.toLocaleString('en-US', options);
   }
+
+  openUrlInNewTab(url: string) {
+    window.open(url, '_blank');
+  }
 }

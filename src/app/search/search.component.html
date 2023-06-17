@@ -8,7 +8,6 @@
     <mat-icon>search</mat-icon>
   </button>
 </div>
-
 <div class="search-results" *ngIf="searchResults.length > 0">
   <h3 class="search-results-heading">Search Results</h3>
   <mat-card *ngFor="let article of searchResults" class="search-result-card">
@@ -38,9 +37,13 @@
         <div class="details-value">{{ article.channelName }}</div>
       </div>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button class="link-button" (click)="openUrlInNewTab(article.loc)">
+        <mat-icon>link</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>
-
 <div class="no-results" *ngIf="searchResults.length === 0 && showNoResultsMessage">
   <p>No results found.</p>
 </div>

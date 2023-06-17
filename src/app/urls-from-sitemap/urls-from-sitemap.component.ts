@@ -10,6 +10,8 @@ import { Url } from '../models/url.model';
 })
 export class UrlsFromSitemapComponent implements OnInit {
   urls: Url[] = [];
+  pageSize: number = 20;
+  currentPage: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,5 +36,18 @@ export class UrlsFromSitemapComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  openUrlInNewTab(url: string) {
+    window.open(url, '_blank');
+  }
+
+  getCurrentPageUrls(): Url[] {
+    const startIndex = this.currentPage * this.pageSize;
+    return this.urls.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  onPageChange(pageIndex: number) {
+    this.currentPage = pageIndex;
   }
 }
