@@ -51,7 +51,7 @@ export class AdminService {
   getAllUsers(): Observable<User[]> {
     const user = this.loggedUser;
     if (user && user.role === 'ADMINISTRATOR') {
-      return this.http.get<User[]>(AUTH_API + 'users').pipe(
+      return this.http.get<User[]>(AUTH_API + 'getAllUsers').pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 400) {
             return throwError(
@@ -69,13 +69,13 @@ export class AdminService {
   }
 
   deleteUser(username: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}users/${username}`, httpOptions);
+    return this.http.delete(`${AUTH_API}deleteUser/${username}`, httpOptions);
   }
 
   changeUserRole(username: string, role: string): Observable<any> {
     const user = this.loggedUser;
     if (user && user.role === 'ADMINISTRATOR') {
-      const url = `${AUTH_API}users/${username}/role`;
+      const url = `${AUTH_API}changeUserRole/${username}/role`;
       return this.http.put(url, { role }, httpOptions).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 400) {

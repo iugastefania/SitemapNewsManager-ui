@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(AUTH_API + 'users').pipe(
+    return this.http.get<User[]>(AUTH_API + 'getAllUsers').pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 400) {
           return throwError(
@@ -73,6 +73,6 @@ export class AuthService {
   }
 
   deleteUser(username: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}users/${username}`, httpOptions);
+    return this.http.delete(`${AUTH_API}deleteUser/${username}`, httpOptions);
   }
 }

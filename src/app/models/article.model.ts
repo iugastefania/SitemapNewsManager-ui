@@ -1,4 +1,6 @@
 export class Article {
+  id!: number;
+  sitemapId!: number;
   loc!: string;
   lastmod!: string;
   channelName!: string;

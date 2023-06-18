@@ -27,8 +27,8 @@ export class ArticlesFromSitemapComponent implements OnInit {
     });
   }
 
-  fetchArticlesFromSitemap(sitemapName: string) {
-    this.articleService.getUrlNews(sitemapName).subscribe(
+  fetchArticlesFromSitemap(sitemapLoc: string) {
+    this.articleService.getUrlNews(sitemapLoc).subscribe(
       (articles: Article[]) => {
         this.articles = articles;
       },

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArticleEditPopupComponent } from './article-edit-popup.component';
 
-describe('UrlEditPopupComponent', () => {
+describe('ArticleEditPopupComponent', () => {
   let component: ArticleEditPopupComponent;
   let fixture: ComponentFixture<ArticleEditPopupComponent>;
 

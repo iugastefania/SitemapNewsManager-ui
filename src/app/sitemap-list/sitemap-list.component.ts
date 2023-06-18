@@ -20,7 +20,7 @@ export class SitemapListComponent implements OnInit {
   }
 
   fetchChannelSitemaps() {
-    this.articleService.getSitemapNews().subscribe(
+    this.articleService.getAllSitemaps().subscribe(
       (sitemaps: Sitemap[]) => {
         this.channelSitemaps = sitemaps;
       },

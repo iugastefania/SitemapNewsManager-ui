@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       },
     );
 
-    this.articleService.getAllUrls().subscribe(
+    this.articleService.getAllArticles().subscribe(
       (articles: Article[]) => {
         this.totalArticles = articles.length;
         console.log('Total Articles:', this.totalArticles);
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       },
     );
 
-    this.articleService.getSitemapNews().subscribe(
+    this.articleService.getAllSitemaps().subscribe(
       (sitemaps: Sitemap[]) => {
         this.totalSitemaps = sitemaps.length;
         console.log('Total Sitemaps:', this.totalSitemaps);

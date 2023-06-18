@@ -74,18 +74,18 @@ export class ArticleService {
     return this.http.get<string[]>(`${this.baseUrl}/channelNames`);
   }
 
-  getSitemapNews(): Observable<Sitemap[]> {
-    return this.http.get<Sitemap[]>(`${this.baseUrl}/getSitemapNews`);
+  getAllSitemaps(): Observable<Sitemap[]> {
+    return this.http.get<Sitemap[]>(`${this.baseUrl}/getAllSitemaps`);
   }
 
-  getUrlNews(sitemapName: string): Observable<Article[]> {
+  getUrlNews(sitemapLoc: string): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.baseUrl}/getUrlNews`, {
-      params: { sitemapName },
+      params: { sitemapLoc },
     });
   }
 
-  getAllUrls(): Observable<Article[]> {
-    return this.http.get<Article[]>(`${this.baseUrl}/getAllUrls`);
+  getAllArticles(): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseUrl}/getAllArticles`);
   }
 
   countUrlsByChannel(channelName: string): Observable<number> {
