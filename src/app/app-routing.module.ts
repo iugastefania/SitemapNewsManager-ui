@@ -4,7 +4,6 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
 import { ArticleListComponent } from './article-list/article-list.component';
 import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
 import { HomeComponent } from './home/home.component';
-import { UrlEditComponent } from './url-edit/url-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { SearchComponent } from './search/search.component';
@@ -34,11 +33,6 @@ const routes: Routes = [
     canActivate: [authViewerGuard],
   },
   { path: 'home', component: HomeComponent },
-  {
-    path: 'article-edit/:id',
-    component: UrlEditComponent,
-    canActivate: [authEditorGuard],
-  },
   {
     path: 'dashboard',
     component: DashboardComponent,
