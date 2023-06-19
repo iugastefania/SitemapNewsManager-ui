@@ -2,7 +2,7 @@
   <mat-card-content>
     <div class="container">
       <div class="register-item">
-        <div class="logo">Registration</div>
+        <div class="logo">Create new account</div>
         <form [formGroup]="adminForm" (ngSubmit)="onSubmit()" class="form-register">
           <mat-form-field appearance="fill" class="mat-form-field">
             <mat-label>Email:</mat-label>
@@ -26,9 +26,15 @@
             </mat-select>
           </mat-form-field>
 
-          <div class="mat-form-field">
+          <!-- <div class="mat-form-field">
             <button mat-icon-button color="primary" class="register-button">
               <mat-icon>person_add</mat-icon>
+            </button>
+          </div> -->
+          <div class="mat-form-field">
+            <button mat-raised-button color="primary" class="register-button">
+              <mat-icon>person_add</mat-icon>
+              <span>Register</span>
             </button>
           </div>
         </form>

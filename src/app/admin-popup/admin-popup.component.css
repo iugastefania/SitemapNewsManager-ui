@@ -25,12 +25,14 @@
   }
   
   .register-button {
+    margin-top: 150px;
     min-width: 0;
     padding: 8px;
   }
   
   .success-message {
-    color: green;
+    color: pink;
+    font-weight: bold;
     font-size: 18px;
     margin-top: 20px;
   }

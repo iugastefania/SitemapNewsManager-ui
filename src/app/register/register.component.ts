@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  roles: string[] = ['EDITOR', 'VIEWER'];
+  roles: string[] = ['VIEWER'];
 
   ngOnInit(): void {}
 

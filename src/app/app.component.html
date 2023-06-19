@@ -28,9 +28,9 @@
   </mat-toolbar>
 
   <div class="container">
-    <div class="sidebar">
+    <div class="sidebar" *ngIf="isViewerOrEditorOrAdmin()">
       <mat-list>
-        <mat-list-item routerLink="/home" routerLinkActive="active">
+        <mat-list-item routerLink="/home" routerLinkActive="active" *ngIf="isViewerOrEditorOrAdmin()">
           <mat-icon>home</mat-icon>
           <span>Home</span>
         </mat-list-item>
@@ -38,7 +38,7 @@
           <mat-icon>dashboard</mat-icon>
           <span>Dashboard</span>
         </mat-list-item>
-        <mat-list-item routerLink="/sitemap-list" routerLinkActive="active">
+        <mat-list-item routerLink="/sitemap-list" routerLinkActive="active" *ngIf="isViewerOrEditorOrAdmin()">
           <mat-icon>rss_feed</mat-icon>
           <span>Sitemaps</span>
         </mat-list-item>
