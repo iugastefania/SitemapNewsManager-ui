@@ -67,7 +67,7 @@
 }
 
 .sidebar a {
-  color: #e91e63;
+  color: black;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -83,6 +83,7 @@
 
 .sidebar a mat-icon {
   margin-right: 6px;
+  color: #e91e63;
 }
 
 .content {
@@ -93,3 +94,8 @@
 .app-footer {
   margin-top: auto;
 }
+
+.sidebar .list-group-item.router-link-active .mat-icon + span {
+  font-size: 18px;
+}
+

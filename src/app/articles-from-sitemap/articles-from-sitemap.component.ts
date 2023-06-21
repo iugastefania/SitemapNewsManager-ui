@@ -10,7 +10,7 @@ import { Article } from '../models/article.model';
 })
 export class ArticlesFromSitemapComponent implements OnInit {
   articles: Article[] = [];
-  pageSize: number = 20;
+  pageSize: number = 13;
   currentPage: number = 0;
 
   constructor(

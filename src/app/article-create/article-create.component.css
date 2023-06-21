@@ -89,10 +89,12 @@
   }
   
   .form-header {
-    font-size: 30px;
-    margin-bottom: 20px;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
     font-weight: bold;
-    color: #c71585;
+    margin-bottom: 20px;
+    text-align: center;
   }
   
   .article-form {

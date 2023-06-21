@@ -16,7 +16,7 @@ import { AuthService } from '../services/auth.service';
 export class ArticleListComponent implements OnInit, AfterViewInit {
   channelName: string = '';
   articles: Article[] = [];
-  pageSize: number = 20;
+  pageSize: number = 10;
   currentPage: number = 0;
   totalItems: number = 0;
   dataSource!: MatTableDataSource<Article>;

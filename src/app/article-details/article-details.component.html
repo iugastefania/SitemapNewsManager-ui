@@ -13,10 +13,6 @@
       <div class="details-value">{{ article.description }}</div>
     </div>
     <div class="details-row">
-      <div class="details-label">Last Modified:</div>
-      <div class="details-value">{{ formattedDate }}</div>
-    </div>
-    <div class="details-row">
       <div class="details-label">Article URL:</div>
       <div class="details-value">{{ article.loc }}</div>
     </div>
@@ -24,8 +20,12 @@
       <div class="details-label">Channel Name:</div>
       <div class="details-value">{{ article.channelName }}</div>
     </div>
-    <button mat-icon-button color="primary" (click)="editArticle()">
-      <mat-icon>edit</mat-icon>
+    <div class="details-row">
+      <div class="details-label">Last Modified:</div>
+      <div class="details-value">{{ formattedDate }}</div>
+    </div>
+    <button mat-icon-button (click)="editArticle()">
+      <mat-icon class="button">edit</mat-icon>
     </button>
   </mat-card-content>
 </mat-card>

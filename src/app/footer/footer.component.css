@@ -1,8 +1,9 @@
    .footer {
     background-color: #f5f5f5;
     padding: 40px 0;
-    color: #333;
+    color: black;
     text-align: center;
+    font-family: "Roboto", sans-serif;
   }
   
   .container {
@@ -48,6 +49,6 @@
   
   .rights {
     font-size: 14px;
-    color: #777;
+    color: #e91e63;
   }
   

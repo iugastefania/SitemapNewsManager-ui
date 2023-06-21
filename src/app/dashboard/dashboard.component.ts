@@ -11,6 +11,8 @@ export class DashboardComponent implements OnInit {
   channelNames: string[] = [];
   articleCounts: { [channelName: string]: number } = {};
   lastUpdatedDates: { [channelName: string]: string } = {};
+  pageSize: number = 15;
+  currentPage: number = 0;
 
   constructor(private articleService: ArticleService, private router: Router) {}
 
@@ -87,4 +89,14 @@ export class DashboardComponent implements OnInit {
 
     return date.toLocaleString('en-US', options);
   }
+
+  getCurrentPageChannels(): string[] {
+    const startIndex = this.currentPage * this.pageSize;
+    return this.channelNames.slice(startIndex, startIndex + this.pageSize);
+  }
+  
+  onPageChange(pageIndex: number) {
+    this.currentPage = pageIndex;
+  }
+  
 }
