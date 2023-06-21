@@ -27,7 +27,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import { HomeComponent } from './home/home.component';
-import { UrlEditComponent } from './url-edit/url-edit.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticleEditPopupComponent } from './article-edit-popup/article-edit-popup.component';
@@ -49,7 +48,6 @@ import { ArticlesFromSitemapComponent } from './articles-from-sitemap/articles-f
     SitemapListComponent,
     ArticleThumbnailComponent,
     HomeComponent,
-    UrlEditComponent,
     SearchComponent,
     FooterComponent,
     ArticleEditPopupComponent,

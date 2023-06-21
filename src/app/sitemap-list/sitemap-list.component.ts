@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SitemapListComponent implements OnInit {
   channelSitemaps: Sitemap[] = [];
-  pageSize: number = 20;
+  pageSize: number = 12;
   currentPage: number = 0;
 
   constructor(private articleService: ArticleService, private router: Router) {}

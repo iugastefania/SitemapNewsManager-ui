@@ -3,9 +3,10 @@
   }
   
   .dashboard-title {
-    color: #261e59;
+    color: palevioletred;
     font-size: 24px;
     margin-bottom: 20px;
+    font-size: bold;
   }
   
   .sitemap-grid {

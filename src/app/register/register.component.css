@@ -1,9 +1,7 @@
- .auth-card {
+   .auth-card {
     max-width: 400px;
     margin: auto;
-    /* margin-top: 100px; */
     text-align: center;
-    /* background-color: #F5F5F5; */
     margin-bottom: 100px;
     border: 1px solid #E0E0E0;
     padding: 20px;

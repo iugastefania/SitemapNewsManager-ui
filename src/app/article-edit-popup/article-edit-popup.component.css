@@ -11,7 +11,7 @@
 
 .popup-title {
   font-size: 24px;
-  color: #30591e;
+  color: palevioletred;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -26,7 +26,7 @@
 }
 
 .mat-label {
-  color: #30591e;
+  color: palevioletred;
 }
 
 .mat-input-element {
@@ -38,7 +38,7 @@
 
 .mat-input-element:focus {
   outline: none;
-  border-color: #30591e;
+  border-color: palevioletred;
 }
 
 .mat-hint {
@@ -52,7 +52,7 @@
 }
 
 button {
-  background-color: #30591e;
+  background-color: palevioletred;
   color: #fff;
   border: none;
   border-radius: 4px;

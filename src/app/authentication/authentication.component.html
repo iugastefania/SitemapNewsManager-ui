@@ -3,26 +3,19 @@
     <div class="container">
       <div class="logo">Authentication</div>
       <div class="login-item">
-        <form [formGroup]="authentificationForm" (ngSubmit)=onSubmit() class="form-register">
-          <mat-form-field appearance="fill" class="mat-form-field">
+        <form [formGroup]="authentificationForm" (ngSubmit)="onSubmit()" class="form-register">
+          <mat-form-field appearance="outline" class="mat-form-field">
             <mat-label>Username:</mat-label>
             <input matInput formControlName="username">
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-form-field appearance="outline" class="mat-form-field">
             <mat-label>Password:</mat-label>
             <input matInput formControlName="password" required type="password">
           </mat-form-field>
-
-          <!-- <div class="mat-form-field login-button">
-            <button mat-raised-button color="primary">
-              <mat-icon>login</mat-icon>
-              <span>Login</span>
-            </button>
-          </div> -->
           <div class="mat-form-field login-button">
-            <button mat-icon-button color="primary">
-              <mat-icon>login</mat-icon>
+            <button mat-raised-button color="primary">
+              <mat-icon>login</mat-icon> Login
             </button>
           </div>
         </form>
@@ -38,3 +31,4 @@
     </div>
   </mat-card-content>
 </mat-card>
+

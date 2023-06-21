@@ -36,8 +36,6 @@
   margin-top: 10px;
 }
 
-
-
 .mat-form-field {
   width: 100%;
 }
@@ -74,3 +72,4 @@
 .account-link:hover {
   text-decoration: underline;
 }
+
