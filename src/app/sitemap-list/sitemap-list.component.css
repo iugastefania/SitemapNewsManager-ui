@@ -41,6 +41,8 @@
 .sitemap-details {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1; 
 }
 
 .sitemap-channel {
@@ -52,4 +54,14 @@
   font-weight: bold;
   color: #777;
   font-size: 14px;
+}
+.add-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+.add-sitemap-button {
+  margin-right: 10px;
 }

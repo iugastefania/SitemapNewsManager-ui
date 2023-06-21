@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Article } from '../models/article.model';
 import { Sitemap } from '../models/sitemap.model';
 import { ArticleRequest } from '../models/article-request.model';
+import { SitemapRequest } from '../models/sitemap-request.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -76,6 +78,14 @@ export class ArticleService {
 
   getAllSitemaps(): Observable<Sitemap[]> {
     return this.http.get<Sitemap[]>(`${this.baseUrl}/getAllSitemaps`);
+  }
+
+  addSitemap(sitemap: SitemapRequest): Observable<Sitemap> {
+    return this.http.post<Sitemap>(`${this.baseUrl}/addSitemap`, sitemap);
+  }
+
+  deleteSitemap(loc: string): Observable<string> {
+    return this.http.delete<string>(`${this.baseUrl}/deleteSitemap?loc=${loc}`);
   }
 
   getUrlNews(sitemapLoc: string): Observable<Article[]> {

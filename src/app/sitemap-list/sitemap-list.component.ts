@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../services/article.service';
 import { Sitemap } from '../models/sitemap.model';
 import { Router } from '@angular/router';
+import { SitemapRequest } from '../models/sitemap-request.model';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSitemapDialogComponent } from '../add-sitemap-dialog/add-sitemap-dialog.component';
 
 @Component({
   selector: 'app-sitemap-list',
@@ -13,7 +16,7 @@ export class SitemapListComponent implements OnInit {
   pageSize: number = 12;
   currentPage: number = 0;
 
-  constructor(private articleService: ArticleService, private router: Router) {}
+  constructor(private articleService: ArticleService, private router: Router, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.fetchChannelSitemaps();
@@ -26,7 +29,35 @@ export class SitemapListComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
+      }
+    );
+  }
+
+  addSitemap(loc: string, channel: string) {
+    const sitemapRequest: SitemapRequest = {
+      loc: loc,
+      channel: channel,
+    };
+    this.articleService.addSitemap(sitemapRequest).subscribe(
+      (sitemap: Sitemap) => {
+        console.log('Sitemap added:', sitemap);
+        this.fetchChannelSitemaps(); 
       },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
+
+  deleteSitemap(loc: string) {
+    this.articleService.deleteSitemap(loc).subscribe(
+      () => {
+        console.log('Sitemap deleted:', loc);
+        this.fetchChannelSitemaps(); 
+      },
+      (error: any) => {
+        console.error(error);
+      }
     );
   }
 
@@ -48,4 +79,18 @@ export class SitemapListComponent implements OnInit {
   onPageChange(pageIndex: number): void {
     this.currentPage = pageIndex;
   }
+
+  openAddSitemapDialog() {
+    const dialogRef = this.dialog.open(AddSitemapDialogComponent, {
+      width: '400px',
+      data: { loc: '', channel: '' } 
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.addSitemap(result.loc, result.channel);
+      }
+    });
+  }
+  
 }
