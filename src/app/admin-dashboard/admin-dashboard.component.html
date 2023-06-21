@@ -1,21 +1,28 @@
-<h2>Users</h2>
+<h2 class="h2">Users</h2>
 
 <div *ngIf="errorMessage" class="error-message">
   {{ errorMessage }}
 </div>
 
-<div *ngFor="let user of users" class="user-card">
-  <div class="user-info">
-    <mat-icon>person</mat-icon>
-    <p>{{ user.username }} - {{ user.email }} ({{ user.role }})</p>
+<div class="user-list">
+  <div *ngFor="let user of users" class="user-card">
+    <div class="user-info">
+      <mat-icon>person</mat-icon>
+      <div class="user-details">
+        <p>{{ user.username }}</p>
+        <p class="user-email">{{ user.email }}</p>
+        <p class="user-role">Role: {{ user.role }}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button mat-icon-button color="warn" (click)="deleteUser(user.username)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="changeUserRole(user.username)">
+        <mat-icon>sync_alt</mat-icon>
+      </button>
+    </div>
   </div>
-  <button mat-icon-button color="warn" (click)="deleteUser(user.username)">
-    <mat-icon>delete</mat-icon>
-  </button>
-  <button mat-icon-button color="primary" (click)="changeUserRole(user.username)">
-    <mat-icon>sync_alt</mat-icon>
-  </button>
 </div>
 
-<!-- <button mat-raised-button color="primary" (click)="registerUser()">Create a new ADMINISTRATOR account</button> -->
-<button mat-raised-button color="primary" (click)="registerUser()">Create a new account</button>
+<button mat-raised-button color="primary" (click)="registerUser()" class="create-button">Create a new account</button>
