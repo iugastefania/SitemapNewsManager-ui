@@ -22,7 +22,7 @@
           <button mat-icon-button class="sitemap-button" (click)="openSitemapInNewTab(sitemap.loc)">
             <mat-icon>open_in_new</mat-icon>
           </button>
-          <button mat-icon-button class="sitemap-button" (click)="deleteSitemap(sitemap.loc)">
+          <button mat-icon-button class="sitemap-button" (click)="deleteSitemap(sitemap.loc)" *ngIf="isAdmin()">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

@@ -25,7 +25,6 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
-import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
@@ -47,7 +46,6 @@ import { AddSitemapDialogComponent } from './add-sitemap-dialog/add-sitemap-dial
     ArticleListComponent,
     ArticleDetailsComponent,
     SitemapListComponent,
-    ArticleThumbnailComponent,
     HomeComponent,
     SearchComponent,
     FooterComponent,

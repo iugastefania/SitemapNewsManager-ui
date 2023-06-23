@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { SitemapRequest } from '../models/sitemap-request.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSitemapDialogComponent } from '../add-sitemap-dialog/add-sitemap-dialog.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sitemap-list',
@@ -16,7 +17,7 @@ export class SitemapListComponent implements OnInit {
   pageSize: number = 12;
   currentPage: number = 0;
 
-  constructor(private articleService: ArticleService, private router: Router, private dialog: MatDialog) {}
+  constructor(private articleService: ArticleService, private router: Router, private dialog: MatDialog, private authService: AuthService ) {}
 
   ngOnInit() {
     this.fetchChannelSitemaps();
@@ -91,6 +92,11 @@ export class SitemapListComponent implements OnInit {
         this.addSitemap(result.loc, result.channel);
       }
     });
+  }
+
+  isAdmin(): boolean {
+    const role = this.authService.loggedUser?.role;
+    return role === 'ADMINISTRATOR';
   }
   
 }

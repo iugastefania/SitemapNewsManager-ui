@@ -46,11 +46,11 @@ export class ArticleCreateComponent implements OnInit {
 
     this.articleService.addArticle(newArticle).subscribe(
       (response) => {
-        this.notificationMessage = 'Article created successfully!';
+        this.notificationMessage = 'Article added successfully!';
         this.notificationService.showSuccess(this.notificationMessage);
       },
       (error) => {
-        this.notificationMessage = 'Failed to create article.';
+        this.notificationMessage = 'Failed to add article.';
         this.notificationService.showError(this.notificationMessage);
       },
     );

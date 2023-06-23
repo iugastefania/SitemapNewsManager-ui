@@ -12,34 +12,15 @@ import { SitemapRequest } from '../models/sitemap-request.model';
 })
 export class ArticleService {
   private baseUrl = 'http://localhost:8080/api/app';
-
+  
   constructor(private http: HttpClient) {}
-
-  //doar la search
-  getArticle(loc: string): Observable<Article> {
-    return this.http.get<Article>(`${this.baseUrl}/getArticle?loc=${loc}`);
-  }
-
-  addArticle(article: ArticleRequest): Observable<Article> {
-    return this.http.post<Article>(`${this.baseUrl}/addArticle`, article);
-  }
-
-  //doar la search
-  updateArticle(article: Article): Observable<string> {
-    return this.http.put<string>(`${this.baseUrl}/updateArticle`, article);
-  }
-
-  //doar la search
-  deleteArticle(loc: string): Observable<string> {
-    return this.http.delete<string>(`${this.baseUrl}/deleteArticle?loc=${loc}`);
-  }
-
+  
   getAllArticlesByChannel(channelName: string): Observable<Article[]> {
     return this.http.get<Article[]>(
       `${this.baseUrl}/getAllArticlesByChannel/${channelName}`,
     );
   }
-
+  
   //la channel list
   addArticleToChannel(
     channelName: string,
@@ -50,6 +31,23 @@ export class ArticleService {
       article,
     );
   }
+  
+  getArticle(loc: string): Observable<Article> {
+    return this.http.get<Article>(`${this.baseUrl}/getArticle?loc=${loc}`);
+  }
+
+  addArticle(article: ArticleRequest): Observable<Article> {
+    return this.http.post<Article>(`${this.baseUrl}/addArticle`, article);
+  }
+
+  updateArticle(article: Article): Observable<string> {
+    return this.http.put<string>(`${this.baseUrl}/updateArticle`, article);
+  }
+
+  deleteArticle(loc: string): Observable<string> {
+    return this.http.delete<string>(`${this.baseUrl}/deleteArticle?loc=${loc}`);
+  }
+
 
   // la channel list
   updateArticleInChannel(

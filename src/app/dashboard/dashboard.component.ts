@@ -60,9 +60,18 @@ export class DashboardComponent implements OnInit {
       queryParams: { channelName: channelName },
     });
   }
-
+  
   getArticleCount(channelName: string): number {
     return this.articleCounts[channelName] || 0;
+  }
+  
+  getCurrentPageChannels(): string[] {
+    const startIndex = this.currentPage * this.pageSize;
+    return this.channelNames.slice(startIndex, startIndex + this.pageSize);
+  }
+  
+  onPageChange(pageIndex: number) {
+    this.currentPage = pageIndex;
   }
 
   getFormattedDate(channelName: string): string {
@@ -81,22 +90,9 @@ export class DashboardComponent implements OnInit {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
-      // hour: 'numeric',
-      // minute: 'numeric',
-      // second: 'numeric',
-      // hour12: true
     };
 
     return date.toLocaleString('en-US', options);
   }
 
-  getCurrentPageChannels(): string[] {
-    const startIndex = this.currentPage * this.pageSize;
-    return this.channelNames.slice(startIndex, startIndex + this.pageSize);
-  }
-  
-  onPageChange(pageIndex: number) {
-    this.currentPage = pageIndex;
-  }
-  
 }

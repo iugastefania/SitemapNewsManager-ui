@@ -94,27 +94,27 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white" *ngIf="isViewerOrEditorOrAdmin()">
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
-          <a mat-list-item routerLink="/home" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/home" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>home</mat-icon>
             <span>Home</span>
           </a>
-          <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>dashboard</mat-icon>
             <span>Dashboard</span>
           </a>
-          <a mat-list-item routerLink="/sitemap-list" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/sitemap-list" routerLinkActive="active" class="waves-effect" *ngIf="isAdmin()">
             <mat-icon>rss_feed</mat-icon>
             <span>Sitemaps</span>
           </a>
-          <a mat-list-item routerLink="/search" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/search" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>search</mat-icon>
             <span>Search</span>
           </a>
-          <a mat-list-item routerLink="/article-create" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/article-create" routerLinkActive="active" class="waves-effect" *ngIf="isEditorOrAdmin()">
             <mat-icon>article</mat-icon>
-            <span >Create Article</span>
+            <span >Add Article</span>
           </a>
-          <a mat-list-item routerLink="/admin" routerLinkActive="active" class="waves-effect">
+          <a mat-list-item routerLink="/admin" routerLinkActive="active" class="waves-effect" *ngIf="isAdmin()">
             <mat-icon>admin_panel_settings</mat-icon>
             <span>Admin</span>
           </a>

@@ -91,7 +91,7 @@
     </form>
   </div> -->
   <div class="article-form-container">
-  <h2 class="form-header">Create New Article</h2>
+  <h2 class="form-header">Add new Article</h2>
   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
     <div class="form-field">
       <mat-form-field appearance="fill">
@@ -131,6 +131,6 @@
         <input matInput type="text" formControlName="thumbnail" required>
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" type="submit" class="create-button">Create</button>
+    <button mat-raised-button color="primary" type="submit" class="create-button">Add</button>
   </form>
 </div>
