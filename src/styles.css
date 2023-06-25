@@ -23,31 +23,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #e91e63;
   font-weight: bold;
 }
-/* @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body {
-height: 100%;
-margin: 0;
-font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
-
-.container {
-display: flex;
-height: 100%;
-}
-
-.sidebar {
-width: 250px;
-background-color: #303030; 
-padding: 20px;
-}
-
-.content {
-flex-grow: 1;
-padding: 20px;
-}
-
-.active {
-color: #e91e63;
-font-weight: bold;
-} */

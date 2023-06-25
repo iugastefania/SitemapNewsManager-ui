@@ -1,63 +1,4 @@
-<!-- <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="loc">Loc:</label>
-      <input type="text" id="loc" formControlName="loc" required>
-    </div>
-    <div>
-      <label for="lastmod">Last Modified:</label>
-      <input type="text" id="lastmod" formControlName="lastmod" required>
-    </div>
-    <div>
-      <label for="channelName">Channel Name:</label>
-      <input type="text" id="channelName" formControlName="channelName" required>
-    </div>
-    <div>
-      <label for="description">Description:</label>
-      <textarea id="description" formControlName="description" required></textarea>
-    </div>
-    <div>
-      <label for="thumbnail">Thumbnail:</label>
-      <input type="text" id="thumbnail" formControlName="thumbnail" required>
-    </div>
-    <button type="submit">Create Article</button>
-  </form>
-   -->
-   <!-- <div class="article-form-container">
-   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
-    <div class="form-field">
-      <mat-form-field>
-        <mat-label>Loc</mat-label>
-        <input matInput type="text" formControlName="loc" required>
-      </mat-form-field>
-    </div>
-    <div class="form-field">
-      <mat-form-field>
-        <mat-label>Last Modified</mat-label>
-        <input matInput type="text" formControlName="lastmod" required>
-      </mat-form-field>
-    </div>
-    <div class="form-field">
-      <mat-form-field>
-        <mat-label>Channel Name</mat-label>
-        <input matInput type="text" formControlName="channelName" required>
-      </mat-form-field>
-    </div>
-    <div class="form-field">
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description" required></textarea>
-      </mat-form-field>
-    </div>
-    <div class="form-field">
-      <mat-form-field>
-        <mat-label>Thumbnail</mat-label>
-        <input matInput type="text" formControlName="thumbnail" required>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary" type="submit">Create Article</button>
-  </form>
-</div> -->
-<div class="article-form-container">
+<!-- <div class="article-form-container">
   <h2 class="form-header">Create New Article</h2>
     <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
       <div class="form-field">
@@ -100,98 +41,96 @@
         <mat-icon>add</mat-icon>
       </button>    
     </form>
-    <!-- <div *ngIf="notificationMessage" class="notification-message">
-      {{ notificationMessage }}
-    </div> -->
-  </div>
+  </div> -->
 
-  
+
   <!-- <div class="article-form-container">
+    <h2 class="form-header">Create New Article</h2>
     <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Title</mat-label>
           <input matInput type="text" formControlName="title" required>
         </mat-form-field>
-      </div>  
+      </div>
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Loc</mat-label>
           <input matInput type="text" formControlName="loc" required>
         </mat-form-field>
       </div>
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Last Modified</mat-label>
-          <input matInput type="text" formControlName="lastmod" required>
+          <input matInput [matDatepicker]="lastModifiedDatepicker" formControlName="lastmod" required>
+          <mat-datepicker-toggle matSuffix [for]="lastModifiedDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #lastModifiedDatepicker></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Channel Name</mat-label>
           <input matInput type="text" formControlName="channelName" required>
         </mat-form-field>
       </div>
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Description</mat-label>
           <textarea matInput formControlName="description" required></textarea>
         </mat-form-field>
       </div>
       <div class="form-field">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Thumbnail</mat-label>
           <input matInput type="text" formControlName="thumbnail" required>
         </mat-form-field>
       </div>
       <button mat-icon-button color="primary" type="submit" class="create-button">
         <mat-icon>add</mat-icon>
-      </button>
-    </form>
-  </div>
-   -->
-
-   <!-- <div class="article-form-container">
-    <h2 class="form-header">Create New Article</h2>
-    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Title</mat-label>
-          <input matInput type="text" formControlName="title" required>
-        </mat-form-field>
-      </div>  
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Loc</mat-label>
-          <input matInput type="text" formControlName="loc" required>
-        </mat-form-field>
-      </div>
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Last Modified</mat-label>
-          <input matInput type="text" formControlName="lastmod" required>
-        </mat-form-field>
-      </div>
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Channel Name</mat-label>
-          <input matInput type="text" formControlName="channelName" required>
-        </mat-form-field>
-      </div>
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Description</mat-label>
-          <textarea matInput formControlName="description" required></textarea>
-        </mat-form-field>
-      </div>
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Thumbnail</mat-label>
-          <input matInput type="text" formControlName="thumbnail" required>
-        </mat-form-field>
-      </div>
-      <button mat-raised-button color="primary" type="submit" class="create-button">
-        Create Article
-      </button>    
+      </button> 
     </form>
   </div> -->
+  <div class="article-form-container">
+  <h2 class="form-header">Add new Article</h2>
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form">
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title" required>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>URL</mat-label>
+        <input matInput type="text" formControlName="loc" required>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>Last Modified</mat-label>
+        <input matInput [matDatepicker]="lastModifiedDatepicker" formControlName="lastmod" required>
+        <mat-datepicker-toggle matSuffix [for]="lastModifiedDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #lastModifiedDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>Channel Name</mat-label>
+        <input matInput type="text" formControlName="channelName" required>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="fill">
+        <mat-label>Thumbnail</mat-label>
+        <input matInput type="text" formControlName="thumbnail" required>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" type="submit" class="create-button">Add</button>
+  </form>
+</div>

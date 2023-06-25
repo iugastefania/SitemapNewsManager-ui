@@ -14,45 +14,61 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UrlListComponent } from './url-list/url-list.component';
-import { UrlDetailsComponent } from './url-details/url-details.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ChannelListComponent } from './channel-list/channel-list.component';
-import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
+import { SitemapListComponent } from './sitemap-list/sitemap-list.component';
 import { HomeComponent } from './home/home.component';
-import { UrlEditComponent } from './url-edit/url-edit.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
-import { UrlEditPopupComponent } from './url-edit-popup/url-edit-popup.component';
+import { ArticleEditPopupComponent } from './article-edit-popup/article-edit-popup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { RegisterComponent } from './register/register.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminPopupComponent } from './admin-popup/admin-popup.component';
+import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dialog.component';
+import { ArticlesFromSitemapComponent } from './articles-from-sitemap/articles-from-sitemap.component';
+import { AddSitemapDialogComponent } from './add-sitemap-dialog/add-sitemap-dialog.component';
+import {ArticleThumbnailComponent} from './article-thumbnail/article-thumbnail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UrlListComponent,
-    UrlDetailsComponent,
-    ChannelListComponent,
-    ArticleThumbnailComponent,
+    ArticleListComponent,
+    ArticleDetailsComponent,
+    SitemapListComponent,
     HomeComponent,
-    UrlEditComponent,
     SearchComponent,
     FooterComponent,
-    UrlEditPopupComponent,
+    ArticleEditPopupComponent,
     DashboardComponent,
     ArticleCreateComponent,
     ConfirmationDialogComponent,
+    AuthenticationComponent,
+    RegisterComponent,
+    AdminDashboardComponent,
+    AdminPopupComponent,
+    ChangeRoleDialogComponent,
+    ArticlesFromSitemapComponent,
+    AddSitemapDialogComponent,
+    ArticleThumbnailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatCardModule,
     MatButtonModule,
     BrowserAnimationsModule,
@@ -60,13 +76,17 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatListModule,
     MatTableModule,
     MatInputModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatIconModule,
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

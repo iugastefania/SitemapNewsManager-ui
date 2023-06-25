@@ -89,9 +89,15 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/typeface-roboto/index.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/mdb-angular-ui-kit/js/jquery.min.js",
+              "node_modules/mdb-angular-ui-kit/js/bootstrap.min.js",
+              "node_modules/mdb-angular-ui-kit/js/mdb.min.js"
+            ]
+            
           }
         }
       }

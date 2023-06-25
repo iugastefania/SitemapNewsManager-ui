@@ -1,106 +1,130 @@
-<!-- app.component.html -->
-<!-- <mat-toolbar color="primary">Sitemap News Manager</mat-toolbar>
-<app-navbar></app-navbar>
-
-<div class="container">
-  <div class="sidebar">
-    <mat-list>
-      <mat-list-item routerLink="/dashboard" routerLinkActive="active">
-        <mat-icon>dashboard</mat-icon>
-        <span>Dashboard</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/channel-list" routerLinkActive="active">
-        <mat-icon>article</mat-icon>
-        <span>Channels</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/urls" routerLinkActive="active">
-        <mat-icon>link</mat-icon>
-        <span>URLs</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/settings" routerLinkActive="active">
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span>
-      </mat-list-item>
-    </mat-list>
-  </div>
-
-  <div class="content">
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-  </div>
-</div> -->
-<!-- 
-<div class="main-container">
-    <mat-toolbar color="primary">Sitemap News Manager</mat-toolbar>
-    <app-navbar></app-navbar>
+<!-- <div class="main-container">
+  <mat-toolbar color="primary">
+    <mat-icon routerLink="/home" class="toolbar-icon">web</mat-icon>
+    <span class="toolbar-text">Sitemap News Manager</span>
   
-    <div class="container">
-      <div class="sidebar">
-        <mat-list>
-          <mat-list-item routerLink="/dashboard" routerLinkActive="active">
-            <mat-icon>dashboard</mat-icon>
-            <span>Dashboard</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/article-create" routerLinkActive="active">
-            <mat-icon>article</mat-icon>
-            <span>Create Article</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/channel-list" routerLinkActive="active">
-            <mat-icon>link</mat-icon>
-            <span>Channels</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/settings" routerLinkActive="active">
-            <mat-icon>settings</mat-icon>
-            <span>Settings</span>
-          </mat-list-item>
-        </mat-list>
-      </div>
+    <span class="spacer"></span> 
   
-      <div class="content">
-        <router-outlet></router-outlet>
+    <div class="menu_right" *ngIf="!loggedUser">
+      <button mat-button routerLink="/authentication" class="menu-button" routerLinkActive="active">
+        <mat-icon class="menu-icon">lock</mat-icon>
+        <span>Authentication</span>
+      </button>
+    </div>
+  
+    <div class="menu_right" *ngIf="loggedUser">
+      <div class="profile-logout-wrapper">
+        <a *ngIf="loggedUser" class="profile-link">
+          <mat-icon class="profile-icon">account_circle</mat-icon>
+          <span>{{ loggedUser.username }} ({{ loggedUser.role }})</span>
+        </a>        
+        <a mat-button class="logout-button" routerLink="" routerLinkActive="active" (click)="logout()">
+          <mat-icon class="logout-icon">exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
       </div>
     </div>
+  </mat-toolbar>
+
+  <div class="container">
+    <div class="sidebar mdb-color lighten-2" *ngIf="isViewerOrEditorOrAdmin()">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home" routerLinkActive="active" class="waves-effect">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="waves-effect">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/sitemap-list" routerLinkActive="active" class="waves-effect">
+          <mat-icon>rss_feed</mat-icon>
+          <span>Sitemaps</span>
+        </a>
+        <a mat-list-item routerLink="/search" routerLinkActive="active" class="waves-effect">
+          <mat-icon>search</mat-icon>
+          <span>Search</span>
+        </a>
+        <a mat-list-item routerLink="/article-create" routerLinkActive="active" class="waves-effect">
+          <mat-icon>article</mat-icon>
+          <span>Create Article</span>
+        </a>
+        <a mat-list-item routerLink="/admin" routerLinkActive="active" class="waves-effect">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <span>Admin</span>
+        </a>
+      </mat-nav-list>
+    </div>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  
-  <app-footer></app-footer> -->
-  <div class="main-container">
-    <mat-toolbar color="primary" routerLink="/home">
-      <mat-icon class="toolbar-icon">web</mat-icon>
-      <span class="toolbar-text">Sitemap News Manager</span>
-    </mat-toolbar>
-  
-    <div class="container">
-      <div class="sidebar">
-        <mat-list>
-          <mat-list-item routerLink="/home" routerLinkActive="active">
+  <app-footer class="app-footer"></app-footer>
+</div> -->
+<div class="main-container">
+  <mat-toolbar color="primary">
+    <mat-icon routerLink="/home" class="toolbar-icon">web</mat-icon>
+    <span class="toolbar-text">Sitemap News Manager</span>
+
+    <span class="spacer"></span>
+
+    <div class="menu_right" *ngIf="!loggedUser">
+      <button mat-button routerLink="/authentication" class="menu-button" routerLinkActive="active">
+        <mat-icon class="menu-icon">lock</mat-icon>
+        <span>Authentication</span>
+      </button>
+    </div>
+
+    <div class="menu_right" *ngIf="loggedUser">
+      <div class="profile-logout-wrapper">
+        <a *ngIf="loggedUser" class="profile-link">
+          <mat-icon class="profile-icon">account_circle</mat-icon>
+          <span>{{ loggedUser.username }} ({{ loggedUser.role }})</span>
+        </a>
+        <a mat-button class="logout-button" routerLink="" routerLinkActive="active" (click)="logout()">
+          <mat-icon class="logout-icon">exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <div class="container">
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white" *ngIf="isViewerOrEditorOrAdmin()">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a mat-list-item routerLink="/home" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>home</mat-icon>
             <span>Home</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/dashboard" routerLinkActive="active">
+          </a>
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>dashboard</mat-icon>
             <span>Dashboard</span>
-          </mat-list-item>
-          <!-- <mat-list-item routerLink="/channel-list" routerLinkActive="active">
+          </a>
+          <a mat-list-item routerLink="/sitemap-list" routerLinkActive="active" class="waves-effect" *ngIf="isAdmin()">
             <mat-icon>rss_feed</mat-icon>
-            <span>Channels</span>
-          </mat-list-item> -->
-          <mat-list-item routerLink="/search" routerLinkActive="active">
+            <span>Sitemaps</span>
+          </a>
+          <a mat-list-item routerLink="/search" routerLinkActive="active" class="waves-effect" *ngIf="isViewerOrEditorOrAdmin()">
             <mat-icon>search</mat-icon>
             <span>Search</span>
-          </mat-list-item>
-          <mat-list-item routerLink="/article-create" routerLinkActive="active">
+          </a>
+          <a mat-list-item routerLink="/article-create" routerLinkActive="active" class="waves-effect" *ngIf="isEditorOrAdmin()">
             <mat-icon>article</mat-icon>
-            <span>Create Article</span>
-          </mat-list-item>
-        </mat-list>
+            <span >Add Article</span>
+          </a>
+          <a mat-list-item routerLink="/admin" routerLinkActive="active" class="waves-effect" *ngIf="isAdmin()">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span>Admin</span>
+          </a>
+        </div>
       </div>
-  
-      <div class="content">
-        <router-outlet></router-outlet>
-      </div>
+    </nav>
+
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  
-  <app-footer></app-footer>
-  
-  
+  <app-footer class="app-footer"></app-footer>
+</div>

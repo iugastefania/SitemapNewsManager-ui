@@ -1,47 +1,51 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../services/article.service';
-import { Url } from '../models/url.model';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  searchQuery: { loc: string, description: string, thumbnail: string, title: string } = {
+  searchQuery: {
+    loc: string;
+    description: string;
+    thumbnail: string;
+    title: string;
+  } = {
     loc: '',
     description: '',
     thumbnail: '',
-    title: ''
+    title: '',
   };
-  searchResults: Url[] = [];
+  searchResults: Article[] = [];
   showNoResultsMessage: boolean = false;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService) {}
 
   searchArticles() {
     this.articleService.getArticle(this.searchQuery.loc).subscribe(
-      (article: Url) => {
+      (article: Article) => {
         this.searchResults = [article];
-        this.showNoResultsMessage = this.searchResults.length === 0; // Show "No results found" message if searchResults is empty
+        this.showNoResultsMessage = this.searchResults.length === 0;
         console.log('Search Results:', this.searchResults);
       },
       (error: any) => {
-        this.searchResults = []; // Clear the searchResults array
-        this.showNoResultsMessage = true; // Show "No results found" message
+        this.searchResults = [];
+        this.showNoResultsMessage = true;
         console.error(error);
-      }
+      },
     );
   }
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-  
+
     if (isNaN(date.getTime())) {
-      // Return the original string if the date is invalid
       return dateString;
     }
-  
+
     const options: Intl.DateTimeFormatOptions = {
       day: 'numeric',
       month: 'long',
@@ -49,10 +53,13 @@ export class SearchComponent {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: true
+      hour12: true,
     };
-  
+
     return date.toLocaleString('en-US', options);
   }
 
+  openUrlInNewTab(url: string) {
+    window.open(url, '_blank');
+  }
 }
