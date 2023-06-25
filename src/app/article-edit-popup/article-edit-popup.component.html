@@ -26,9 +26,9 @@
     <div class="form-field">
       <mat-form-field>
         <mat-label>Last Modified</mat-label>
-        <input matInput [matDatepicker]="lastModifiedDatepicker" placeholder="Choose a date" [(ngModel)]="article.lastmod" required>
-        <mat-datepicker-toggle matSuffix [for]="lastModifiedDatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #lastModifiedDatepicker></mat-datepicker>
+        <input matInput [matDatepicker]="picker" id="lastmod" name="lastmod" [(ngModel)]="article.lastmod" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 

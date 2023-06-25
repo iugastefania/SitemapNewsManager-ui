@@ -39,6 +39,7 @@ import { AdminPopupComponent } from './admin-popup/admin-popup.component';
 import { ChangeRoleDialogComponent } from './change-role-dialog/change-role-dialog.component';
 import { ArticlesFromSitemapComponent } from './articles-from-sitemap/articles-from-sitemap.component';
 import { AddSitemapDialogComponent } from './add-sitemap-dialog/add-sitemap-dialog.component';
+import {ArticleThumbnailComponent} from './article-thumbnail/article-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { AddSitemapDialogComponent } from './add-sitemap-dialog/add-sitemap-dial
     ChangeRoleDialogComponent,
     ArticlesFromSitemapComponent,
     AddSitemapDialogComponent,
+    ArticleThumbnailComponent,
   ],
   imports: [
     BrowserModule,

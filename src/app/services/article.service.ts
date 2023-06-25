@@ -11,7 +11,8 @@ import { SitemapRequest } from '../models/sitemap-request.model';
   providedIn: 'root',
 })
 export class ArticleService {
-  private baseUrl = 'http://localhost:8080/api/app';
+  // private baseUrl = 'http://localhost:8080/api/app';
+  private baseUrl = 'http://13.38.138.77:8080/api/app';
   
   constructor(private http: HttpClient) {}
   
@@ -21,7 +22,7 @@ export class ArticleService {
     );
   }
   
-  //la channel list
+
   addArticleToChannel(
     channelName: string,
     article: ArticleRequest,
@@ -49,7 +50,6 @@ export class ArticleService {
   }
 
 
-  // la channel list
   updateArticleInChannel(
     channelName: string,
     article: Article,
@@ -60,7 +60,7 @@ export class ArticleService {
     );
   }
 
-  // la channel list
+
   deleteArticleFromChannel(
     channelName: string,
     loc: string,

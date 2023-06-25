@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'sitemap-list',
     component: SitemapListComponent,
-    canActivate: [authViewerGuard],
+    canActivate: [authAdminGuard],
   },
   { path: 'home', component: HomeComponent },
   {
@@ -58,7 +58,7 @@ const routes: Routes = [
   {
     path: 'articlefromsitemap',
     component: ArticlesFromSitemapComponent,
-    canActivate: [authViewerGuard],
+    canActivate: [authAdminGuard],
   },
 ];
 

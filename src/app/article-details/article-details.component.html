@@ -5,7 +5,14 @@
   <mat-card-content>
     <div class="details-row">
       <div class="details-value">
-        <app-article-thumbnail [article]="article"></app-article-thumbnail>
+        <a class="ripple" href="#!">
+          <img
+            alt="example"
+            class="img-fluid rounded thumbnail-img"
+            [src]="article.thumbnail"
+          />
+        </a>
+        <!-- <app-article-thumbnail [article]="article"></app-article-thumbnail> -->
       </div>
     </div>
     <div class="details-row">
